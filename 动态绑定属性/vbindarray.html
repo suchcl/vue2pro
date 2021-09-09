@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h2 v-bind:class='["active","line","vixited"]'>{{msg}}</h2>
+        <h2 v-bind:class="getClasses()">{{msg}}</h2>
+        
+
+    </div>
+
+    <script>
+        //创建Vue实例,得到 ViewModel
+        let app = new Vue({
+            el: '#app',
+            data: {
+                msg: "Hello Vue!",
+                active: "active",
+                line: "line",
+                visited: "visited"
+            },
+            methods: {
+                getClasses() {
+                    return [this.active, this.line, this.visited];
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

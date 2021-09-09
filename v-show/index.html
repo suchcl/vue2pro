@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id ="app">
+        <!--当isShow被修改为false时，该元素直接没有被渲染到DOM中-->
+        <h2 v-if="isShow" id="vif">{{msg}}</h2>
+        <!--当isShow被修改为false时，该元素通过display：none；隐藏掉了-->
+        <h2 v-show="isShow" id="vshow">{{msg}}</h2>
+    </div>
+
+    <script>
+     //创建Vue实例,得到 ViewModel
+     let app = new Vue({
+        el: '#app',
+        data: {
+            msg: "Hello Vue!",
+            isShow: true
+        },
+        methods: {}
+     });
+    </script>
+</body>
+
+</html>

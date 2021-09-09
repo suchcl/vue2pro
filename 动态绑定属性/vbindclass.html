@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h2 v-bind:class="{active:isActive,line: isLined,visited: isVisited}">{{msg}}</h2>
+        <h2 v-bind:class="getClasses()">{{msg}}</h2>
+        <button @click="btnClick">active切换</button>
+
+        <ul class="list">
+            <li v-for="(item,index) in fruits" :key="index">{{item}}</li>
+        </ul>
+    </div>
+
+    <script>
+        //创建Vue实例,得到 ViewModel
+        let app = new Vue({
+            el: '#app',
+            data: {
+                msg: "Hello Vue!",
+                isActive: true,
+                isLined: true,
+                isVisited: true,
+                fruits:["apple","peach","banana","pear"]
+            },
+            methods: {
+                btnClick: function () {
+                    this.isActive = !this.isActive; // 给isActive取反，就不用记录当前的状态了
+                    this.isVisited = !this.isVisited;
+                },
+                // 把class封装到方法中，通过方法来返回对象语法的class列表
+                getClasses() {
+                    return {
+                        active: this.isActive,
+                        line: this.isLined,
+                        visited: this.isVisited
+                    };
+                }
+            }
+        });
+    </script>
+
+    <style>
+        .active {
+            font-size: 32px;
+        }
+
+        .link {
+            color: #f20;
+        }
+
+        .visited {
+            color: #369;
+        }
+    </style>
+</body>
+
+</html>

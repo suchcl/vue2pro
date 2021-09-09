@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .active,
+        .isFirst {
+            color: #f20;
+        }
+
+        .fruits li {
+            cursor: pointer;
+        }
+    </style>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <ul class="fruits">
+            <li v-for="(item,index) in fruits" :Key="item"
+                :class="{active: currentIndex === index, isFirst: index === 0}" @click="liClick(index)">{{item}}</li>
+        </ul>
+    </div>
+
+    <script>
+        //创建Vue实例,得到 ViewModel
+        let app = new Vue({
+            el: '#app',
+            data: {
+                fruits: ["Apple", "Peach", "Pear", "Banana", "Potato"],
+                currentIndex: 0
+            },
+            methods: {
+                liClick(index) {
+                    this.currentIndex = index;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

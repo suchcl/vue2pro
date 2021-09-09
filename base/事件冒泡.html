@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">
+        <div class="btn-area" id="btnArea">我是button包裹元素
+            <button id="btn">button</button>
+        </div>
+
+        <a href="https://www.baidu.com" target="_blank" id="link">百度</a>
+
+    </div>
+
+    <script>
+        let btnArea = document.getElementById("btnArea");
+        let btn = document.getElementById("btn");
+        btn.addEventListener("click", function (e) {
+            console.log("按钮被点击");
+            // 阻止调用相同事件的传播：传播包括向上的冒泡和向下的捕获
+            e.stopPropagation();
+        });
+        btnArea.addEventListener("click", function () {
+            console.log("div被点击");
+        });
+
+        let link = document.getElementById("link");
+        link.addEventListener("click",function(event){
+            console.log("元素a被点击了");
+            event.preventDefault();
+        });
+    </script>
+</body>
+
+</html>

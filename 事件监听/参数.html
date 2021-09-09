@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!--mustache中，方法小括号不可省-->
+        <h2>{{initCounter()}}</h2>
+        <!--响应监听事件的方法，没有参数的情况下，方法名后的小括号可以省略，也可以加上，效果相同-->
+        <button @click="btn1Click()">button1</button>
+        <button @click="btn1Click">button1-1</button>
+        <!--在事件定义时，写方法时省略了小括号，但是方法本身是需要一个小括号的，这个时候，vue会默认将浏览器产生的event事件作为参数传递到方法中，这个时候再调用方法的时候，不加参数，就默认把event参数传递给方法了-->
+        <button @click="btn2Click">button2</button>
+        <!--方法定义时需要一个event参数，也需要一个其他的参数,这个时候可以通过$event手动获取浏览器事件-->
+        <button @click="btn3Click(abc,$event)">button3</button>
+        <button>button4</button>
+        <button>button5</button>
+    </div>
+
+    <script>
+        //创建Vue实例,得到 ViewModel
+        let app = new Vue({
+            el: '#app',
+            data: {
+                counter: 0,
+                abc: "Hello"
+            },
+            methods: {
+                btn1Click() {
+                    console.log("按钮1被点击了");
+                },
+                btn2Click(name) {
+                    console.log(name); // name没有打印出来，PointerEvent {isTrusted: true, pointerId: 1, width: 1, height: 1, pressure: 0, …}  把当前的事件给打印了出来，说明在没有给命名方法传递参数的时候，vue就将浏览器的默认事件传递给了方法
+                },
+                btn3Click(abc, event) {
+                    console.log("+++++++", abc, event);
+                },
+                initCounter() {
+                    let num = this.counter + 2;
+                    return num;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

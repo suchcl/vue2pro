@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!--.stop修饰符的使用-->
+        <div @click="divClick">
+            <!--不添加.stop修饰符，点击按钮的同时会触发div的点击事件，加上.stop修饰符，会阻止按钮的点击事件向上冒泡-->
+            <button @click.stop="btnClick">button</button>
+        </div>
+        <!--阻止默认事件:元素a，点击后默认是要跳转出去的，但是在点击事件中添加了.prevent修饰符后，就不会进行跳转动作了-->
+        <a href="https://www.baidu.com" target="_blank" @click.prevent="aClick">百度</a>
+
+        <!--这个按钮只能执行一次点击事件-->
+        <button @click.once="btnClickOnce">.once修饰符</button>
+
+        <!--默认情况下，所有按键的按键松开事件都会执行响应函数，加上了.enter修饰符后，只有在回车键松开的时候，才会执行响应函数-->
+        <input type="text" @keyup.enter="keyUp">
+    </div>
+
+    <script>
+        //创建Vue实例,得到 ViewModel
+        let app = new Vue({
+            el: '#app',
+            data: {},
+            methods: {
+                divClick() {
+                    console.log("Div被点击了");
+                },
+                btnClick() {
+                    console.log("button被点击了");
+                },
+                aClick() {
+                    console.log("元素a被点击了");
+                },
+                btnClickOnce(){
+                    console.log("这个按钮只能被执行一次点击事件");
+                },
+                keyUp(){
+                    console.log("keyUp事件执行了");
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

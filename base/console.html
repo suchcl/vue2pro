@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>console</h2>
+    <button id="btn">清空调试信息</button>
+    <script>
+        console.time("timer");
+        let sum = 0;
+        for (let i = 0; i < 1000; i++) {
+            sum += i;
+        }
+        console.timeEnd("timer");
+
+        console.log("%d + %d = %d", 1, 1, 3); //格式化输出： 1 + 1 = 3
+        console.log("%i",3.2); // 3
+        console.log("%i",3.7); // 3
+
+        console.log("%d",3.2); // 3
+        console.log("%d",3.7); // 3
+
+        console.log("%c这是一件神奇的%o事情","color: #f20",{color: "#369",fontSize: "32px"});
+
+        console.info("%c这又是一件神奇的事情","color: #369");
+
+        console.warn("%c这是意见值得注意的事情","font-size: 32px");
+        console.error("%c这是一件错误的事情","color: green");
+    </script>
+</body>
+
+</html>

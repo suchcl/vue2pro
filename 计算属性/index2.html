@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h2>总价：{{totalPrice}}</h2>
+        <h3>总价：{{allPrice}}</h3>
+    </div>
+
+    <script>
+        //创建Vue实例,得到 ViewModel
+        let app = new Vue({
+            el: '#app',
+            data: {
+                books: [
+                    {id: 1, name: "Javascript高级程序设计", price: 119},
+                    {id: 2, name: "Es6标准入门",price: 89},
+                    {id: 3,name: "Nodejs实战",price: 129},
+                    {id: 4,name: "中国近代史纲要",price: 49}
+                ]
+            },
+            computed: {
+                // 两种计算总价的计算属性，只是使用了不同的js的基本功能
+                // 这是最普通的一种遍历
+                totalPrice() {
+                    let result = 0;
+                    for (let i = 0; i < this.books.length; i++) {
+                        result += this.books[i].price;
+                    }
+                    return result;
+                },
+
+                // 这里使用了es6的reduce方法，数组变量，数据归并，
+                allPrice() {
+                    return this.books.reduce(function (prev, cur, index, arr) {
+                        return prev + cur.price;
+                    }, 0);
+                }
+            },
+            methods: {}
+        });
+    </script>
+</body>
+
+</html>

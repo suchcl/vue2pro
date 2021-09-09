@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <h2 v-if="score >= 90">优秀</h2>
+        <h2 v-else-if="score >= 80">良好</h2>
+        <h2 v-else-if="score >= 60">及格</h2>
+        <h2 v-else>不及格</h2> -->
+        <h2>{{results}}</h2>
+    </div>
+
+    <script>
+        //创建Vue实例,得到 ViewModel
+        let app = new Vue({
+            el: '#app',
+            data: {
+                score: 46,
+                result: "优秀"
+            },
+            computed: {
+                results() {
+                    let score = this.score;
+                    let result = "优秀";
+                    if (score >= 90) {
+                        result = "优秀";
+                    } else if (score >= 80) {
+                        result = "良好";
+                    } else if (score >= 60) {
+                        result = "及格";
+                    } else {
+                        result = "不及格";
+                    }
+                    return result;
+                }
+            },
+            methods: {}
+        });
+    </script>
+</body>
+
+</html>

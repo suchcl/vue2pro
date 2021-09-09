@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="btn">按钮1</button>
+    <button class="btn">按钮2</button>
+    <button class="btn">按钮3</button>
+    <button class="btn">按钮4</button>
+    <button class="btn">按钮5</button>
+
+    <button id="changeConst">修改const对象属性</button>
+
+    <script>
+        var btn = document.getElementsByClassName("btn");
+
+        // 这种常规的思路，无论点击哪个按钮，都会显示第5个按钮，因为for本身没有作用域的概念
+        // for (var i = 0; i < btn.length; i++) {
+        //     btn[i].addEventListener("click", function () {
+        //         console.log("第" + i + "个按钮被点击");
+        //     });
+        // }
+
+        // 这里借助了闭包（函数）解决了应用外部变量的问题,点哪个就显示哪个
+        // for (var i = 0; i < btn.length; i++) {
+        //     (function (i) {
+        //         btn[i].addEventListener("click", function () {
+        //             console.log("第" + i + "个按钮被点击"); 
+        //         });
+        //     })(i);
+        // }
+
+        // ES6中有块级作用域的概念，直接常规思路编码即可
+        for (let i = 0; i < btn.length; i++) {
+            btn[i].addEventListener("click", function () {
+                console.log("点击了第" + i + "个按钮");
+            });
+        }
+
+        const p = {
+            name: "Nicholas"
+        };
+        const p2 = {
+            age: 12
+        };
+        document.getElementById("changeConst").addEventListener("click", function () {
+            p.name = "Qiuyan Huo";
+            console.log(p.name); // Qiuyan Huo
+            p = p2; // Uncaught TypeError: Assignment to constant variable.
+            // console.log(p);
+        });
+
+        let name = "Nicholas Zakas";
+        let age = 12;
+        let p = {
+            name,
+            age,
+            eat(){
+                console.log("该吃饭了");
+            },
+            // play方法没有增强，eat方法的本质，和play方法一样
+            play:function(){
+                console.log("该去锻炼身体了");
+            }
+        };
+    </script>
+</body>
+
+</html>

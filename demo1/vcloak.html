@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <h3>{{msg}}</h3>
+    </div>
+    <!--style标签位置不一定要和DOM在一起-->
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+    <script>
+        //创建Vue实例,得到 ViewModel
+        setTimeout(function () {
+            let app = new Vue({
+                el: '#app',
+                data: {
+                    msg: "Hello Vue!"
+                },
+                methods: {}
+            });
+        }, 3000);
+    </script>
+</body>
+
+</html>

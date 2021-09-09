@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!--固定链接-->
+        <ul class="list">
+            <li><a href="https://www.baidu.com">百度</a></li>
+            <li><a href="https://wwww.qq.com">QQ</a></li>
+            <li><a href="https://www.163.com">163</a></li>
+        </ul>
+        <!--动态属性绑定-->
+        <ul class="list">
+            <li v-for="item in list"><a v-bind:href="item.url">{{item.title}}</a></li>
+        </ul>
+        <hr>
+        <!--双层循环-->
+        <ul class="list-o">
+            <li v-for="item in list">
+                <h3><a v-bind:href="item.url">{{item.title}}</a></h3>
+                <ul class="list-i">
+                    <li v-for="key in item.keywords">{{key}}</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        //创建Vue实例,得到 ViewModel
+        let app = new Vue({
+            el: '#app',
+            data: {
+                list: [
+                    {
+                        title: "百度",
+                        url: "https://www.baidu.com",
+                        keywords: ["百度1", "百度2", "百度3", "百度4", "百度5"]
+                    },
+                    {
+                        title: "163",
+                        url: "https://www.163.com",
+                        keywords: ["网易1", "网易2", "网易3", "网易4", "网易5"]
+                    },
+                    {
+                        title: "QQ",
+                        url: "https://www.qq.com",
+                        keywords: ["QQ1", "QQ2", "QQ3", "QQ4", "QQ5"]
+                    },
+                    {
+                        title: "淘宝",
+                        url: "https://www.taobao.com",
+                        keywords: ["淘宝1", "淘宝2", "淘宝3", "淘宝4", "淘宝5"]
+                    },
+                    {
+                        title: "搜狐",
+                        url: "https://www.sohu.com",
+                        keywords: ["搜狐1", "搜狐2", "搜狐3", "搜狐4", "搜狐5"]
+                    }
+                ]
+            },
+            methods: {}
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!--我们分别执行计算属性和methods方法的获取全名的方法，执行计算属性就是注释掉methods部分，执行methods就注释掉计算属性部分，我们看到执行计算属性部分的时候，计算属性函数执行了1次，而methods执行了4次-->
+        <!--计算属性-->
+        <h2>{{fullName}}</h2>
+        <h2>{{fullName}}</h2>
+        <h2>{{fullName}}</h2>
+        <h2>{{fullName}}</h2>
+        <!--methods-->
+        <h2>{{getFullName()}}</h2>
+        <h2>{{getFullName()}}</h2>
+        <h2>{{getFullName()}}</h2>
+        <h2>{{getFullName()}}</h2>
+    </div>
+
+    <script>
+        //创建Vue实例,得到 ViewModel
+        let app = new Vue({
+            el: '#app',
+            data: {
+                firstName: "Nicholas",
+                lastName: "Zakas"
+            },
+            computed: {
+                fullName() {
+                    console.log("计算属性：fullName"); // fullName计算属性被多次调用，但是该行代码只执行了一次
+                    return this.firstName + " " + this.lastName;
+                }
+            },
+            methods: {
+                getFullName() {
+                    console.log("methods:getFullName()");
+                    return this.firstName + " " + this.lastName;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div class="login-mobile" v-if="isMobile">手机号登录</div>
+        <div class="login-acc" v-else>账号登录</div>
+        <button @click="changeLoginTYpe">{{loginType}}</button>
+    </div>
+
+    <script>
+        //创建Vue实例,得到 ViewModel
+        let app = new Vue({
+            el: '#app',
+            data: {
+                loginType: "账号登录",
+                isMobile: true
+            },
+            methods: {
+                changeLoginTYpe() {
+                    this.isMobile = !this.isMobile;
+                    if (this.isMobile) {
+                        this.loginType = "账号登录";
+                    } else {
+                        this.loginType = "手机号登录";
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
