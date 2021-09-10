@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>数组高阶函数-reduce</h2>
+    <script>
+        let num = [1,4,6];
+        /**
+         * prev: 前一次归并（计算）的结果，默认为reduce方法的第2个参数
+         * item：当前次遍历的当前值
+         * return：最后归并（计算）的结果，一个新的值
+         * remark: 原数组不变
+         */
+        let total = num.reduce(function(prev,item){
+            return prev + item;
+        },0);
+        console.log(total); // 11，数组各项计算的最终结果
+        console.log(num); // [1, 4, 6]，原数组不变
+    </script>
+</body>
+</html>

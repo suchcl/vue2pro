@@ -106,7 +106,7 @@
             },
             computed: {
                 totalPrice() {
-                    let totalPrice = 0;
+                    // let totalPrice = 0;
 
                     /*遍历获取每本书的价格，有多种办法，这是一种最常规的办法，for循环*/
                     // for (let i = 0; i < this.books.length; i++) {
@@ -119,13 +119,19 @@
                     // }
 
                     /*for of，直接遍历当前数据，不用通过索引来获取*/
-                    for(let item of this.books){
-                        totalPrice += item.price * item.count;
-                    }
-                    /*使用reduce也可以实现相同的效果*/
-                    
+                    // for(let item of this.books){
+                    //     totalPrice += item.price * item.count;
+                    // }
+                    // return totalPrice;
+                    /*使用reduce也可以实现相同的效果
+                    * 下面两种使用reduce的方式都可以实现
+                    * 使用了reduce函数，尤其加持了箭头函授功能后，代码易懂
+                    */
+                    // return this.books.reduce(function (prev, book) {
+                    //     return prev + book.price * book.count;
+                    // }, 0);
 
-                    return totalPrice;
+                    return this.books.reduce((prev, book) => prev + book.price * book.count, 0);
                 }
             },
             methods: {
