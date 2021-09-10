@@ -107,9 +107,24 @@
             computed: {
                 totalPrice() {
                     let totalPrice = 0;
-                    for (let i = 0; i < this.books.length; i++) {
-                        totalPrice += this.books[i].price * this.books[i].count;
+
+                    /*遍历获取每本书的价格，有多种办法，这是一种最常规的办法，for循环*/
+                    // for (let i = 0; i < this.books.length; i++) {
+                    //     totalPrice += this.books[i].price * this.books[i].count;
+                    // }
+
+                    /*使用ES6中语中for  in 语法来实现*/
+                    // for (let i in this.books) {
+                    //     totalPrice += this.books[i].price * this.books[i].count;
+                    // }
+
+                    /*for of，直接遍历当前数据，不用通过索引来获取*/
+                    for(let item of this.books){
+                        totalPrice += item.price * item.count;
                     }
+                    /*使用reduce也可以实现相同的效果*/
+                    
+
                     return totalPrice;
                 }
             },

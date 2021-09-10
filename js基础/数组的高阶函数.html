@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>来学习数组了</h2>
+    <script>
+        let nums = [56, 120, 87, 19, 109, 210, 47];
+        let newNum = nums.filter(function (n) {
+            return n < 100;
+        });
+        console.log(newNum); // 返回了由符合条件的数据组成的新数组[56, 87, 19, 47]
+        console.log(nums); // 原数组不变 [56, 120, 87, 19, 109, 210, 47]
+    </script>
+</body>
+
+</html>
