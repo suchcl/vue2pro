@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!--单选场景-->
+        <div class="single">
+            <select v-model="city">
+                <option value="全部">全部</option>
+                <option value="河北">河北</option>
+                <option value="山东">山东</option>
+                <option value="北京">北京</option>
+            </select>
+            <h3>你选择的城市是：{{city}}</h3>
+        </div>
+        <!--多选场景-->
+        <div class="multi">
+            <select v-model="cities" multiple>
+                <option value="全部">全部</option>
+                <option value="河北">河北</option>
+                <option value="山东">山东</option>
+                <option value="北京">北京</option>
+            </select>
+            <h3>你选择了:{{cities}}</h3>
+        </div>
+    </div>
+
+    <script>
+        //创建Vue实例,得到 ViewModel
+        let app = new Vue({
+            el: '#app',
+            data: {
+                city: "全部", // 单选场景下，使用字符串，本demo中给了一个默认值，在vue中，给select一个默认值，是在数据中给定默认值，而不是通过select控件的selected属性
+                cities: ["北京"] // 给一个默认的选项
+            },
+            methods: {}
+        });
+    </script>
+</body>
+
+</html>
