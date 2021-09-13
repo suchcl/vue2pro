@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <my-component></my-component>
+        <!--组件newsCpn是实例app的局部组件，只能在该实例下使用-->
+        <news-cpn></news-cpn>
+    </div>
+
+    <!--my-component组件在新的Vue实例中使用-->
+    <div id="app2">
+        <my-component></my-component>
+        <!--组件newsCpn是实例app的局部组件，在实例app2中是没法正常使用的-->
+        <news-cpn></news-cpn>
+    </div>
+    <script>
+        // 1. 创建vue组件构造器
+        const myCpnConstructor = Vue.extend({
+            template: `
+                <div class="box">
+                    <h2>模块标题</h2>
+                    <p>模块内容</p>
+                </div>
+            `
+        });
+        // 2. 注册组件
+        // 这种方式注册的组件，都是全局组件，它可以在多个Vue实例下使用，再实例化一个app2的实例，可以看下效果
+        const myCpn = Vue.component("my-component", myCpnConstructor);
+
+        // 创建一个局部组件构造器
+        // 无论是全局组件还是局部组件，只是注册组件的位置发生了变化，但是组件的使用步骤没有改变，该创建组件构造器的还是要创建
+        const localConstructor = Vue.extend({
+            template: `
+                <div class="box">
+                    <h2>局部组件标题</h2>
+                    <p>局部组件内容局部组件内容</p>
+               </div>
+            `
+        });
+        //创建Vue实例,得到 ViewModel
+        let app = new Vue({
+            el: '#app',
+            data: {},
+            methods: {},
+            components: {
+                // 在当前实例app下注册了局部组件newsCpn，该组件只能在实例app下使用，其他vue实例下不可用
+                newsCpn: localConstructor
+            }
+        });
+
+        // 一个新的Vue实例，全局组件my-component也可以在新的Vue实例中使用
+        let app2 = new Vue({
+            el: "#app2"
+        });
+    </script>
+</body>
+
+</html>
