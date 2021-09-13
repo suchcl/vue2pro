@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id ="app">
+        <my-cpn></my-cpn>
+        <my-cpn2></my-cpn2>
+    </div>
+
+    <script>
+        // 第2个参数，传入了一个选项对象，会自动调用Vue.extend()方法，也称为组件的语法糖
+        // 语法糖形式，注册的全局组件
+        Vue.component("my-cpn",{
+            template:`
+                <div class="box">
+                    <h2>语法糖的标题</h2>
+                    <p>组件语法糖的内容</p>
+                </div>
+            `
+        });
+     //创建Vue实例,得到 ViewModel
+     let app = new Vue({
+        el: '#app',
+        data: {},
+        methods: {},
+        components:{
+            // 语法糖格式注册了局部组件
+            "my-cpn2":{
+                template:`
+                    <div class="box">
+                        <h2>语法糖注册局部组件标题</h2>
+                        <p>语法糖注册局部组件内容</p>    
+                    </div>
+                `
+            }
+        }
+     });
+    </script>
+</body>
+
+</html>
