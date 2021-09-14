@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <blog :ctitle="title" :ccontent="content" :cauthor="author"></blog>
+    </div>
+
+    <!--自定义个一个模板-->
+    <template id="article">
+        <div class="article">
+            <div class="title">
+                <h3>{{ctitle}}</h3>
+                <p>{{cauthor}}</p>
+            </div>
+            <div class="content">{{ccontent}}</div>
+        </div>
+    </template>
+
+    <script>
+        const blog = {
+            template: "#article",
+            // props向子组件传值：对象形式，可限定属性类型、默认值
+            props: {
+                ctitle: String, // 限定类型
+                ccontent: {
+                    type: String, // 限定类型
+                    default: "今天我们来探讨一个有趣的问题，如果玉兔遇到莱昂纳多·斐波那契，那明年中秋嫦娥在月亮上会拥有几只玉兔呢？" // 设置默认值
+                },
+                cauthor: {
+                    type: String,
+                    required: true // 设置该属性必须要从父组件传值过来
+                }
+            }
+        };
+        //创建Vue实例,得到 ViewModel
+        let app = new Vue({
+            el: '#app',
+            data: {
+                title: "基于活文档理念的 UI 自动化测试框架",
+                author: "Nicholas Zakas",
+                content: "不管是需求文档、代码、还是测试用例，本质上都是一种知识的表达，不同时期每一种知识载体的权威性也不同。比如在需求评审阶段，需求文档就是最权威的知识。而测试阶段，测试用例又变成了最权威的知识载体。"
+            },
+            methods: {},
+            components: {
+                blog
+            }
+        });
+    </script>
+</body>
+
+</html>

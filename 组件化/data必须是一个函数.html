@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .btn-area {
+            padding-left: 60px;
+        }
+    </style>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <counter></counter>
+        <counter></counter>
+        <counter></counter>
+    </div>
+
+    <template id="counter">
+        <div class="counter">
+            <h2>当前数是：{{counter}}</h2>
+            <div class="btn-area">
+                <button @click="increment">+</button>
+                <button @click="decrement" :disabled="isDisabled">-</button>
+            </div>
+        </div>
+    </template>
+    <script>
+        Vue.component("counter", {
+            template: "#counter",
+            data() {
+                return {
+                    counter: 0
+                }
+            },
+            computed: {
+                isDisabled() {
+                    return this.counter <= 1 ? true : false;
+                }
+            },
+            methods: {
+                increment() {
+                    this.counter++;
+                },
+                decrement() {
+                    this.counter--;
+                }
+            }
+        });
+        //创建Vue实例,得到 ViewModel
+        let app = new Vue({
+            el: '#app',
+            data: {},
+            methods: {}
+        });
+    </script>
+</body>
+
+</html>

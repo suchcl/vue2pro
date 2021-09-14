@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!--父组件将数据fruits传递给了子组件的自定义属性cfruits-->
+        <fruits :cfruits="fruits"></fruits>
+    </div>
+
+    <template id="fruits">
+        <ul class="fruits">
+            <!--子组件可以使用自定义属性cfruits-->
+            <li v-for="(item,index) in cfruits" :key="item">{{item}}</li>
+        </ul>
+    </template>
+
+    <script>
+
+        //创建Vue实例,得到 ViewModel
+        let app = new Vue({
+            el: '#app',
+            data: {
+                fruits: ["apple", "banana", "pear", "peach", "photos"]
+            },
+            methods: {},
+            components: {
+                "fruits": {
+                    template: "#fruits",
+                    // 子组件自定义了一个自定义属性(props)cfruits，用来接收父组件的数据
+                    props: ["cfruits"]
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

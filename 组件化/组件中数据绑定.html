@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <my-cpn></my-cpn>
+        <!--在模板中定义存放数据的data后的组件渲染-->
+        <news></news>
+    </div>
+
+    <template id="box">
+        <div class="box">
+            <!--通过mustache语法将当前组件中存放的数据title绑定到了组件中-->
+            <h2>{{title}}</h2>
+            <p>{{content}}</p>
+        </div>
+    </template>
+
+    <script type="text/x-template" id="news">
+        <ul>
+            <li>{{title}}</li>
+        </ul>
+        <!--在模板中，是不能定义data参数存放数据的，即便定义的data是一个函数类型-->
+        data() {
+            return {
+                title: "我是新闻标题"
+            }
+        },
+    </script>
+
+    <script>
+        Vue.component("my-cpn", {
+            template: "#box",
+            data() {
+                return {
+                    title: "我是分离出来的组件的标题",
+                    content: "我说分离出来的组件的内容"
+                }
+            }
+        });
+        Vue.component("news", {
+            template: "#news"
+        });
+        //创建Vue实例,得到 ViewModel
+        let app = new Vue({
+            el: '#app',
+            data: {},
+            methods: {}
+        });
+    </script>
+</body>
+
+</html>
