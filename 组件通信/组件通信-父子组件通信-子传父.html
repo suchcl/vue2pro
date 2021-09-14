@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .category {
+            margin: 5px 10px;
+        }
+    </style>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!--监听子组件自定义事件item-click的响应函数cpnClick可以没有参数，默认会把子组件自定义函数的参数传递给处理函数-->
+        <categories :categories="categories" @item-click="cpnClick"></categories>
+    </div>
+
+    <template id="categories">
+        <div>
+            <!--响应函数itemClick(item)需要加参数item，告知父组件什么数据被传递了过去-->
+            <button class="category" v-for="item in categories" :Key="item.id"
+                @click="itemClick(item)">{{item.name}}</button>
+        </div>
+    </template>
+    <script>
+        const categories = {
+            template: "#categories",
+            props: {
+                categories: {
+                    type: Array,
+                    default() {
+                        return []
+                    }
+                }
+            },
+            methods: {
+                itemClick(item) {
+                    this.$emit("item-click", item);
+                }
+            }
+
+        };
+        //创建Vue实例,得到 ViewModel
+        let app = new Vue({
+            el: '#app',
+            data: {
+                categories: [
+                    {
+                        id: "mobile",
+                        name: "手机"
+                    },
+                    {
+                        id: "computer",
+                        name: "电脑"
+                    },
+                    {
+                        id: "digital",
+                        name: "数码"
+                    },
+                    {
+                        id: "shoes",
+                        name: "鞋"
+                    },
+                    {
+                        id: "books",
+                        name: "图书"
+                    }
+                ]
+            },
+            methods: {
+                // 监听子组件自定义事件的响应函数，需要接收从子组件自定义函数传递过来的参数
+                cpnClick(name,item) {
+                    console.log(item);
+                    console.log(name);
+                }
+            },
+            components: {
+                categories
+            }
+        });
+    </script>
+</body>
+
+</html>
