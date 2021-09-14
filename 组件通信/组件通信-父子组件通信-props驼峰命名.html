@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!--子组件user中的props的userName属性，在组件传值中引用的时候，需要将驼峰改成-分隔的形式，否则无法正常解析，代码不会报错-->
+        <user :user-name="name" :age="age" :occ="occ"></user>
+        <div class="remark" :p1="p1" :propsName="p2" :props-prop="p3">{{remark}}</div>
+    </div>
+
+    <template id="user">
+        <div class="user">
+            <h3>姓名：{{userName}}</h3>
+            <p>年龄：{{age}}</p>
+            <p>职业：{{occ}}</p>
+        </div>
+    </template>
+    <script>
+        const user = {
+            template: "#user",
+            props: {
+                userName: String, // 属性命名可以是驼峰形式，但是在组件中接收数据时，需要使用以-分隔的形式，如user-name
+                age: Number,
+                occ: String
+            }
+        };
+        //创建Vue实例,得到 ViewModel
+        let app = new Vue({
+            el: '#app',
+            data: {
+                name: "Nicholas Zakas",
+                age: 26,
+                occ: "Programmer",
+                remark:"备注信息",
+                p1: "自定义属性",
+                p2: "自定义属性2",
+                p3: "自定义属性3"
+            },
+            methods: {},
+            components: {
+                user
+            }
+        });
+    </script>
+</body>
+
+</html>
