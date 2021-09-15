@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <cpn :number1="num1" :number2="num2" @num1-change="num1Change"></cpn>
+    </div>
+
+    <template id="cpn">
+        <div>
+            <h3>props中的只：{{number1}}</h3>
+            <!--直接绑定了props中的属性，从表面上看是没有问题的，但是代码运行过程中会报异常-->
+            <input type="text" v-model="number1">
+            <h3>data中：{{dnumber1}}</h3>
+            <!--绑定了data中的值，页面展示正常，代码执行过程中也没有报异常，完美-->
+            <input type="text" v-model="dnumber1">
+            <h3>在子组件变化时，也修改到父组件中的值，也就是props中的值：{{number1}}</h3>
+            <input type="text" :value="dnumber1" @input="number1Change">
+            <h3>props中的值：{{number2}}</h3>
+            <!--直接绑定了props中的属性，从表面上看是没有问题的，但是代码运行过程中会报异常-->
+            <input type="text" v-model="number2">
+            <!--绑定了计算属性，效果完美-->
+            <h3>绑定计算属性：{{cnumber2}}</h3>
+            <input type="text" v-model="cnumber2">
+        </div>
+    </template>
+
+    <script>
+        //创建Vue实例,得到 ViewModel
+        let app = new Vue({
+            el: '#app',
+            data: {
+                num1: 1,
+                num2: 0
+            },
+            methods: {
+                num1Change(value){
+                    console.log(value);
+                    this.num1 = parseInt(value);
+                }
+            },
+            components: {
+                cpn: {
+                    template: "#cpn",
+                    data() {
+                        return {
+                            dnumber1: this.number1,
+                            dnumber2: this.number2
+                        }
+                    },
+                    computed: {
+                        cnumber2: {
+                            set(newValue) {
+                                this.dnumber2 = newValue;
+                            },
+                            get() {
+                                return this.dnumber2;
+                            }
+                        }
+                    },
+                    props: {
+                        number1: Number,
+                        number2: Number
+                    },
+                    methods:{
+                        number1Change(event){
+                            this.dnumber1 = event.target.value;
+                            this.$emit("num1-change",this.dnumber1);
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
