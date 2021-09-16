@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .ipt1 {
+            padding: 20px;
+            background-color: azure;
+        }
+
+        .ipt2 {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: burlywood;
+        }
+    </style>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <cpn :number1="num1" :number2="num2" @input1-change="number1Change" @input2-change="number2Change"></cpn>
+    </div>
+
+    <template id="mycpn">
+        <div class="ipt-area">
+            <div class="ipt1">
+                <h3>props值：{{number1}}</h3>
+                <h3>data中值：{{dnumber1}}</h3>
+                <input type="text" :value="dnumber1" @input="input1Change">
+            </div>
+            <div class="ipt2">
+                <h3>props:{{number2}}</h3>
+                <h3>data中值：{{dnumber2}}</h3>
+                <input type="text" :value="dnumber2" @input="input2Change">
+            </div>
+        </div>
+    </template>
+
+    <script>
+        let cpn = {
+            template: "#mycpn",
+            props: {
+                number1: Number,
+                number2: Number
+            },
+            data() {
+                return {
+                    dnumber1: this.number1,
+                    dnumber2: this.number2
+                }
+            },
+            methods: {
+                input1Change(event) {
+                    this.dnumber1 = event.target.value;
+                    this.$emit("input1-change", this.dnumber1);
+                },
+                input2Change(event) {
+                    this.dnumber2 = event.target.value;
+                    this.$emit("input2-change", this.dnumber2);
+                }
+            },
+            watch: {
+                dnumber1(newValue, oldValue) {
+                    this.dnumber2 = newValue * 10;
+                    this.$emit("input2-change", this.dnumber2);
+                },
+                dnumber2(newValue) {
+                    this.dnumber1 = newValue / 10;
+                    this.$emit("input1-change", this.dnumber1);
+                }
+            }
+        };
+        //创建Vue实例,得到 ViewModel
+        let app = new Vue({
+            el: '#app',
+            data: {
+                num1: 1,
+                num2: 0
+            },
+            methods: {
+                number1Change(value) {
+                    this.num1 = parseFloat(value);
+                },
+                number2Change(value) {
+                    this.num2 = parseFloat(value);
+                }
+            },
+            components: {
+                cpn
+            }
+        });
+    </script>
+</body>
+
+</html>
