@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .cpn {
+            color: #fff;
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            background-color: cadetblue;
+        }
+    </style>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <cpn :msg="msg" :info="info"></cpn>
+        <cpn :msg="msg" :info="info"></cpn>
+        <cpn :msg="msg" :info="info"></cpn>
+        <button @click="getChildrenMethod">调用子组件方法</button>
+        <button @click="getChildrenData">获取子组件数据</button>
+    </div>
+    <template id="cpn">
+        <div class="cpn">
+            <h3>{{msg}}</h3>
+            <p>{{info}}</p>
+        </div>
+    </template>
+
+    <script>
+        let cpn = {
+            template: "#cpn",
+            data() {
+                return {}
+            },
+            props: {
+                msg: String,
+                info: String
+            },
+            methods: {
+                showMessage() {
+                    console.log(this.msg);
+                }
+            }
+        };
+        //创建Vue实例,得到 ViewModel
+        let app = new Vue({
+            el: '#app',
+            data: {
+                msg: "父组件调用子组件方法",
+                info: "父组件获取子组件数据"
+            },
+            methods: {
+                // 通过$children获取子组件的方法
+                getChildrenMethod() {
+                    this.$children[0].showMessage();
+                },
+                // 通过$children获取子组件的数据
+                getChildrenData() {
+                    console.log(this.$children[0].info);
+                }
+            },
+            components: {
+                cpn
+            }
+        });
+    </script>
+</body>
+
+</html>
