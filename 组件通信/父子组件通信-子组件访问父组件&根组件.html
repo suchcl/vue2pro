@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .pcpn {
+            color: #fff;
+            padding: 10px 15px;
+            background-color: cadetblue;
+        }
+
+        .ccpn {
+            color: #333;
+            padding: 5px 10px;
+            background-color: cornsilk;
+        }
+
+        .ccpn button {
+            margin-bottom: 10px;
+        }
+    </style>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <pcpn :msg="msg"></pcpn>
+    </div>
+
+    <template id="pcpn">
+        <div class="pcpn">
+            <h3>父组件</h3>
+            <ccpn></ccpn>
+        </div>
+    </template>
+
+    <template id="ccpn">
+        <div class="ccpn">
+            <h4>子组件</h4>
+            <button @click="executeParentMethod">子组件获取父组件，执行父组件方法</button><br>
+            <button @click="getParentData">子组件获取父组件数据</button><br>
+            <button @click="executeRootMethod">子组件执行根组件方法</button><br>
+            <button @click="getRootData">子组件获取根组件数据</button>
+        </div>
+    </template>
+
+    <script>
+        let ccpn = {
+            template: "#ccpn",
+            methods: {
+                // 通过$parent获取父组件，执行父组件中的方法
+                executeParentMethod() {
+                    this.$parent.showMessage(); //父组件的方法被执行了
+                },
+
+                // 通过$parent获取到了父组件数据
+                getParentData() {
+                    console.log(this.$parent.msg); // 根组件传递给父组件的数据
+                },
+
+                // 通过$root执行根组件方法
+                executeRootMethod() {
+                    this.$root.showMessage(); // 根组件的方法被执行了
+                },
+
+                // 通过$root获取根组件数据
+                getRootData() {
+                    console.log(this.$root.rinfo); //根组件数据
+                }
+            }
+        };
+        let pcpn = {
+            template: "#pcpn",
+            components: {
+                ccpn
+            },
+            props: {
+                msg: String
+            },
+            methods: {
+                showMessage() {
+                    console.log("父组件的方法被执行了");
+                }
+            }
+        };
+        //创建Vue实例,得到 ViewModel
+        let app = new Vue({
+            el: '#app',
+            data: {
+                msg: "根组件传递给父组件的数据",
+                rinfo: "根组件数据"
+            },
+            methods: {
+                showMessage() {
+                    console.log("根组件的方法被执行了");
+                }
+            },
+            components: {
+                pcpn
+            }
+        });
+    </script>
+</body>
+
+</html>
