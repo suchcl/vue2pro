@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .slot {
+            color: #fff;
+            margin-bottom: 15px;
+            padding: 5px 10px 30px;
+            background-color: darkcyan;
+        }
+        .fcr {
+            color: #f20;
+        }
+    </style>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <cpn :title="title" :content="content">
+            <!--button元素就替换了组件中的slot-->
+            <button>按钮</button>
+            <span>我是后来的文字</span>
+            <i>斜体字</i>
+        </cpn>
+        <cpn :title="title" :content="content">
+            <!--span元素替换了组件中的slot-->
+            <span>我被span包裹了</span>
+        </cpn>
+        <!--下面两个元素都没有给slot传值，那么就会直接使用slot的默认值，显示红色斜体文字-->
+        <cpn :title="title" :content="content"></cpn>
+        <cpn :title="title" :content="content"></cpn>
+    </div>
+
+    <template id="cpn">
+        <!--组件中，title和content部分都是相同的，抽取这部分的共性，剩下的部分不同，使用slot占位，具体是什么，接入者去决定-->
+        <div class="slot">
+            <h3>{{title}}</h3>
+            <p>{{content}}</p>
+            <!--slot中的元素，为slot的默认值-->
+            <slot><i class="fcr">我是红色斜体</i></slot>
+        </div>
+    </template>
+    <script>
+        let cpn = {
+            template: "#cpn",
+            props: {
+                title: String,
+                content: String
+            }
+        };
+        //创建Vue实例,得到 ViewModel
+        let app = new Vue({
+            el: '#app',
+            data: {
+                title: "组件标题",
+                content: "组件内容"
+            },
+            methods: {},
+            components: {
+                cpn
+            }
+        });
+    </script>
+</body>
+
+</html>

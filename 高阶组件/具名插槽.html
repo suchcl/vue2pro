@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .cpn{
+            color: #fff;
+            padding: 5px 10px;
+            background-color: darkcyan;
+        }
+    </style>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <cpn>
+            <!--通过slot指定要替换的slot-->
+            <button slot="center">按钮</button>
+        </cpn>
+    </div>
+
+    <template id="cpn">
+        <div class="cpn">
+            <h3>组件标题</h3>
+            <p>组件内容</p>
+            <slot name="left"><span>左侧元素</span></slot>
+            <slot name="center"><span>中间元素</span></slot>
+            <slot name="right"><span>右侧元素</span></slot>
+        </div>
+    </template>
+    <script>
+        let cpn = {
+            template: "#cpn"
+        };
+        //创建Vue实例,得到 ViewModel
+        let app = new Vue({
+            el: '#app',
+            data: {},
+            methods: {},
+            components: {
+                cpn
+            }
+        });
+    </script>
+</body>
+
+</html>

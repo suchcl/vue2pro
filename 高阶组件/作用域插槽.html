@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <cpn></cpn>
+        <cpn>
+            <!--获取子组件的数据-->
+            <!--Vue2.5.x以下需要使用template模板，2.5.x版本以上就可以不再使用template模板了-->
+            <!--slot-scope属性固定，属性值可以自定义，这里我使用的slot，也可以是其他的自定义名字，如scope、abc等，只是在取数据的时候需要和该属性名保持一致即可-->
+            <template slot-scope="slot">
+                <span v-for="item in slot.data">{{item}}</span>
+            </template>
+        </cpn>
+        <cpn>
+            <template slot-scope="slot">
+                <span>{{slot.data.join(', ')}}</span>
+            </template>
+        </cpn>
+    </div>
+
+    <template id="cpn">
+        <div>
+            <slot :data="planguages">
+                <ul>
+                    <li v-for="item in planguages">{{item}}</li>
+                </ul>
+            </slot>
+        </div>
+    </template>
+
+    <script>
+        let cpn = {
+            template: "#cpn",
+            data() {
+                return {
+                    planguages: ["Javascript", "C++", "Python", "Java", "Object-C", "Go"]
+                }
+            }
+        };
+        //创建Vue实例,得到 ViewModel
+        let app = new Vue({
+            el: '#app',
+            data: {},
+            methods: {},
+            components: {
+                cpn
+            }
+        });
+    </script>
+</body>
+
+</html>
