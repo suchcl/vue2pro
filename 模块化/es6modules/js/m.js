@@ -1,6 +1,4 @@
-import { flag } from "./a.js";
+import {flag,sum} from "./a.js"
 
 console.log(flag);
-
-import {age} from "./a.js";
-console.log(age);
+console.log(sum(2, 3));
