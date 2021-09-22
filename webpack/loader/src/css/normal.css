@@ -1,3 +1,14 @@
 body{
     background-color: #ae2;
 }
+.box {
+    width: 400px;
+    height: 500px;
+    background-image: url("../images/icon-pdf.png");
+}
+
+.box2{
+    width: 500px;
+    height: 800px;
+    background-image: url("../images/defalut-bg.png");
+}
