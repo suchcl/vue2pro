@@ -440,27 +440,30 @@ function toComment(sourceMap) {
 
 /***/ }),
 /* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__js_mathUtil__ = __webpack_require__(3);
 
 
-console.log(Object(__WEBPACK_IMPORTED_MODULE_0__js_mathUtil__["b" /* sum */])(10, 20));
-console.log(Object(__WEBPACK_IMPORTED_MODULE_0__js_mathUtil__["a" /* mul */])(5, 10));
+var _mathUtil = __webpack_require__(3);
 
-__webpack_require__(4)
+console.log((0, _mathUtil.sum)(10, 20));
+console.log((0, _mathUtil.mul)(5, 10));
+
+__webpack_require__(4);
 
 __webpack_require__(9);
 
 /***/ }),
 /* 3 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return sum; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return mul; });
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 function sum(num1, num2) {
     return num1 + num2;
 }
@@ -469,7 +472,8 @@ function mul(num1, num2) {
     return num1 * num2;
 }
 
-
+exports.sum = sum;
+exports.mul = mul;
 
 /***/ }),
 /* 4 */
@@ -565,7 +569,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACa
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "4bc67538024c96ec61e567cd33849de6.png");
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "images/defalut-bg.4bc67538.png");
 
 /***/ }),
 /* 9 */
