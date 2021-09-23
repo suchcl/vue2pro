@@ -54,5 +54,13 @@ module.exports = {
                 }
             }
         ]
+    },
+    resolve: {
+        alias: {
+            /**
+             * 在执行import Vue from "vue";时，指定使用vue/dist/vue.esm.js去编译vue文件，默认使用的是vue/dist/vue.runtime.js编译器
+             */
+            "vue$":"vue/dist/vue.esm.js"
+        }
     }
 };
