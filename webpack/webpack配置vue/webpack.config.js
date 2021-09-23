@@ -5,7 +5,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, "dist"),
         filename: "bundle.js",
-        publicPath:"dist/"
+        publicPath: "dist/"
     },
     module: {
         rules: [
@@ -38,7 +38,7 @@ module.exports = {
                             // 当文件小于limit的值时，就会直接通过url-loader将文件转换成base64，减少一次http请求
                             // 当文件大小大于limit的值时，就会通过file-loader对文件做一些处理，并将文件转移到编译的目录目录下，目标目录需要publicPath动态对应一下
                             limit: 8192,
-                            name:"images/[name].[hash:8].[ext]"
+                            name: "images/[name].[hash:8].[ext]"
                         }
                     }
                 ]
@@ -52,6 +52,10 @@ module.exports = {
                         presets: ['es2015']
                     }
                 }
+            },
+            {
+                test: /\.vue$/,
+                use: ["vue-loader"]
             }
         ]
     },
@@ -60,7 +64,7 @@ module.exports = {
             /**
              * 在执行import Vue from "vue";时，指定使用vue/dist/vue.esm.js去编译vue文件，默认使用的是vue/dist/vue.runtime.js编译器
              */
-            "vue$":"vue/dist/vue.esm.js"
+            "vue$": "vue/dist/vue.esm.js"
         }
     }
 };
