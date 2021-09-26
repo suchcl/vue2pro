@@ -79,5 +79,10 @@ module.exports = {
             template:"./index.html"
         }),
         new UglifyjsWebpackPlugin()
-    ]
+    ],
+    // 该配置只需要在开发环境中使用，生产环境不需要
+    devServer:{
+        contentBase: "./dist",
+        inline: true
+    }
 };
