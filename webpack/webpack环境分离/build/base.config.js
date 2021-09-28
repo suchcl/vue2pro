@@ -1,12 +1,12 @@
 const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const UglifyjsWebpackPlugin = require("uglifyjs-webpack-plugin");
+// const UglifyjsWebpackPlugin = require("uglifyjs-webpack-plugin");
 
 module.exports = {
     entry: "./src/main.js",
     output: {
-        path: path.resolve(__dirname, "dist"),
+        path: path.resolve(__dirname, "../dist"),
         filename: "bundle.js",
         // publicPath: "dist/"
     },
@@ -78,11 +78,11 @@ module.exports = {
         new HtmlWebpackPlugin({
             template:"./index.html"
         }),
-        new UglifyjsWebpackPlugin()
+        // new UglifyjsWebpackPlugin()
     ],
     // 该配置只需要在开发环境中使用，生产环境不需要
-    devServer:{
-        contentBase: "./dist",
-        inline: true
-    }
+    // devServer:{
+    //     contentBase: "./dist",
+    //     inline: true
+    // }
 };

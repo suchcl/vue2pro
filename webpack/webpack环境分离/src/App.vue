@@ -12,7 +12,7 @@ export default {
   data() {
     return {
       username: "Nicholas Zakas",
-      age: 18,
+      age: 32,
       height: 1.88
     }
   }
