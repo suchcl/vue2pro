@@ -1,3 +1,4 @@
+// 没有使用路由懒加载效果的路由配置
 // 配置路由
 import Vue from "vue";
 import VueRouter from "vue-router";
