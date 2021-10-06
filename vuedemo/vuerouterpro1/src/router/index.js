@@ -27,6 +27,8 @@ const Home = resolve => {
     resolve(require("../components/home.vue"));
   });
 };
+const HomeNews = () => import("../components/HomeNews");
+const HomeMessage = () => import("../components/HomeMessage");
 // // import About from "../components/about.vue";
 // // 使用AMD模块化方法，实现路由懒加载的方式
 const About = resolve => require(["../components/about.vue"], resolve);
@@ -47,11 +49,26 @@ const routes = [
    */
   {
     path: "/",
-    component: Home
+    // component: Home
+    redirect: "/home" // 配置一个默认路由，当进入项目时，重定向到一个指定的组件、路由
   },
   {
     path: "/home",
-    component: Home
+    component: Home,
+    children: [
+      {
+        path: "",
+        redirect: "news"
+      },
+      {
+        path: "news",
+        component: HomeNews
+      },
+      {
+        path: "msg",
+        component: HomeMessage
+      }
+    ]
   },
   {
     path: "/about",

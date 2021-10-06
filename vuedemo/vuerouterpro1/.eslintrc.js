@@ -28,7 +28,7 @@ module.exports = {
     "quotes": [1, "double"],
     "semi": [1, "always"],
     "indent": [1, 2],
-    "space-before-function-paren":[0,"always"],
-    "eol-last":[0,"always"]
+    "space-before-function-paren": [0, "always"],
+    "eol-last": [0, "always"]
   }
 }
