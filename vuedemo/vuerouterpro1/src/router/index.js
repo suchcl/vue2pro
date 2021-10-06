@@ -37,6 +37,7 @@ const About = resolve => require(["../components/about.vue"], resolve);
 const User = () => import("../components/user.vue");
 // // import UserDetail from "../components/userDetail.vue"
 const UserDetail = () => import("../components/userDetail");
+const Profile = () => import("../components/profile");
 
 // 1. 通过Vue.use()来安装、挂载插件
 Vue.use(VueRouter);
@@ -81,6 +82,10 @@ const routes = [
   {
     path: "/user/:userid",
     component: UserDetail
+  },
+  {
+    path: "/profile",
+    component: Profile
   }
 ];
 const router = new VueRouter({
