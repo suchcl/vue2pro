@@ -23,7 +23,9 @@
         <router-link to="/user">用户列表</router-link>
       </li>
     </ul>
-    <router-view />
+    <keep-alive>
+      <router-view />
+    </keep-alive>
   </div>
 </template>
 

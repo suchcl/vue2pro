@@ -25,7 +25,8 @@ export default {
       info: "首页首页，我是首页",
       username: "XinYunhan",
       age: 28,
-      job: "Teacher"
+      job: "Teacher",
+      path: "/home/news"
     };
   },
   methods: {
@@ -40,6 +41,19 @@ export default {
         }
       });
     }
+  },
+  activated() {
+    this.$router.push(this.path);
+    console.log(
+      "%c [ this.path ]",
+      "font-size:13px; background:pink; color:#bf2c9f;",
+      this.path
+    );
+  },
+  beforeRouteLeave(to, from, next) {
+    console.log(this.$route.path);
+    this.path = this.$route.path;
+    next();
   }
 };
 </script>

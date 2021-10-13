@@ -50,8 +50,8 @@ const routes = [
    */
   {
     path: "/",
-    // component: Home
-    redirect: "/home", // 配置一个默认路由，当进入项目时，重定向到一个指定的组件、路由
+    component: Home,
+    // redirect: "/home", // 配置一个默认路由，当进入项目时，重定向到一个指定的组件、路由
     meta: {
       title: "首页"
     }
@@ -60,13 +60,16 @@ const routes = [
     path: "/home",
     component: Home,
     children: [
-      {
-        path: "",
-        redirect: "news"
-      },
+      // {
+      //   path: "",
+      //   redirect: "news"
+      // },
       {
         path: "news",
         component: HomeNews,
+        beforeEnter: (to, from, next) => {
+          next();
+        },
         meta: {
           title: "新闻中心"
         }
@@ -116,10 +119,13 @@ const router = new VueRouter({
   linkActiveClass: "linkedOn" // 配置被选中路由的样式
 });
 
+// 前置钩子（hook、guard）
 router.beforeEach((to, from, next) => {
   document.title = to.meta.title; // 有时在有路由嵌套时，会取不到to.meta.title,这个时候可以这样取：to.matched[0].meta.title
   next();
 });
+
+router.afterEach((to, from) => {});
 
 // 3. 将vue-router对象挂载到vue实例中
 export default router;

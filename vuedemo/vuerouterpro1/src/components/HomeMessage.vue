@@ -4,3 +4,11 @@
     <p>消息内容</p>
   </div>
 </template>
+
+<script>
+export default {
+  beforeRouteEnter(to, from, next) {
+    next();
+  }
+};
+</script>
