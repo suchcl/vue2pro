@@ -1,0 +1,398 @@
+[
+    {
+        "name": "联系类",
+        "list": {
+            "2": {
+                "id": "3",
+                "tag_name": "首次联系延迟",
+                "tag_type": "1",
+                "is_hidden": "0",
+                "tag_model": "YwOrderBusinessTags",
+                "tag_value": "241"
+            },
+            "4": {
+                "id": "5",
+                "tag_name": "新上户跟进频率低",
+                "tag_type": "1",
+                "is_hidden": "0",
+                "tag_model": "YwFollowBusinessTag",
+                "tag_value": "298"
+            },
+            "5": {
+                "id": "6",
+                "tag_name": "日常跟进频率低",
+                "tag_type": "1",
+                "is_hidden": "0",
+                "tag_model": "YwFollowBusinessTag",
+                "tag_value": "300"
+            },
+            "6": {
+                "id": "7",
+                "tag_name": "预约当日未通话",
+                "tag_type": "1",
+                "is_hidden": "0",
+                "tag_model": "YwFollowBusinessTag",
+                "tag_value": "303"
+            },
+            "10": {
+                "id": "11",
+                "tag_name": "首电报告发送延迟",
+                "tag_type": "1",
+                "is_hidden": "1",
+                "tag_model": "YwOrderBusinessTags",
+                "tag_value": "210"
+            },
+            "13": {
+                "id": "14",
+                "tag_name": "首电报告未发送",
+                "tag_type": "1",
+                "is_hidden": "1",
+                "tag_model": "YwOrderBusinessTags",
+                "tag_value": "230"
+            },
+            "14": {
+                "id": "15",
+                "tag_name": "联系延迟",
+                "tag_type": "1",
+                "is_hidden": "0",
+                "tag_model": "YwFollowBusinessTag",
+                "tag_value": "304"
+            },
+            "23": {
+                "id": "26",
+                "tag_name": "首电质检不合格",
+                "tag_type": "1",
+                "is_hidden": "0",
+                "tag_model": "YwOrderBusinessTags",
+                "tag_value": "400"
+            },
+            "30": {
+                "id": "34",
+                "tag_name": "首电质检A类问题不合格",
+                "tag_type": "1",
+                "is_hidden": "0",
+                "tag_model": "YwOrderBusinessTags",
+                "tag_value": "401"
+            },
+            "40": {
+                "id": "45",
+                "tag_name": "首电通话响应速度优秀",
+                "tag_type": "1",
+                "is_hidden": "0",
+                "tag_model": "YwIncreaseScoreBusinessTags",
+                "tag_value": "700"
+            },
+            "41": {
+                "id": "46",
+                "tag_name": "优秀首电",
+                "tag_type": "1",
+                "is_hidden": "0",
+                "tag_model": "YwIncreaseScoreBusinessTags",
+                "tag_value": "701"
+            }
+        }
+    },
+    {
+        "name": "带看类",
+        "list": {
+            "7": {
+                "id": "8",
+                "tag_name": "带看前未与客户确认",
+                "tag_type": "2",
+                "is_hidden": "1",
+                "tag_model": "YwFollowBusinessTag",
+                "tag_value": "263"
+            },
+            "8": {
+                "id": "9",
+                "tag_name": "带看迟到",
+                "tag_type": "2",
+                "is_hidden": "0",
+                "tag_model": "YwFollowBusinessTag",
+                "tag_value": "281"
+            },
+            "9": {
+                "id": "10",
+                "tag_name": "带看楼盘未签到",
+                "tag_type": "2",
+                "is_hidden": "0",
+                "tag_model": "YwFollowBusinessTag",
+                "tag_value": "287"
+            },
+            "11": {
+                "id": "12",
+                "tag_name": "带看报告发送延迟",
+                "tag_type": "2",
+                "is_hidden": "0",
+                "tag_model": "YwFollowBusinessTag",
+                "tag_value": "290"
+            },
+            "12": {
+                "id": "13",
+                "tag_name": "带看报告未发送",
+                "tag_type": "2",
+                "is_hidden": "0",
+                "tag_model": "YwFollowBusinessTag",
+                "tag_value": "212"
+            },
+            "15": {
+                "id": "16",
+                "tag_name": "带看录入延迟",
+                "tag_type": "2",
+                "is_hidden": "0",
+                "tag_model": "YwFollowBusinessTag",
+                "tag_value": "278"
+            },
+            "22": {
+                "id": "25",
+                "tag_name": "带看后跟进频率低",
+                "tag_type": "2",
+                "is_hidden": "0",
+                "tag_model": "YwFollowBusinessTag",
+                "tag_value": "299"
+            },
+            "35": {
+                "id": "40",
+                "tag_name": "带看未使用支撑系统视频看房",
+                "tag_type": "2",
+                "is_hidden": "1",
+                "tag_model": "YwFollowBusinessTag",
+                "tag_value": "310"
+            },
+            "36": {
+                "id": "41",
+                "tag_name": "带看前清单准备延迟",
+                "tag_type": "2",
+                "is_hidden": "1",
+                "tag_model": "YwFollowBusinessTag",
+                "tag_value": "311"
+            },
+            "37": {
+                "id": "42",
+                "tag_name": "带看前未准备带看材料",
+                "tag_type": "2",
+                "is_hidden": "1",
+                "tag_model": "YwFollowBusinessTag",
+                "tag_value": "312"
+            },
+            "38": {
+                "id": "43",
+                "tag_name": "线上带看未选择网络稳定环境",
+                "tag_type": "2",
+                "is_hidden": "1",
+                "tag_model": "YwFollowBusinessTag",
+                "tag_value": "313"
+            },
+            "39": {
+                "id": "44",
+                "tag_name": "带看不合格",
+                "tag_type": "2",
+                "is_hidden": "1",
+                "tag_model": "YwFollowBusinessTag",
+                "tag_value": "314"
+            },
+            "42": {
+                "id": "47",
+                "tag_name": "优秀线上带看",
+                "tag_type": "2",
+                "is_hidden": "0",
+                "tag_model": "YwIncreaseScoreBusinessTags",
+                "tag_value": "702"
+            },
+            "43": {
+                "id": "48",
+                "tag_name": "带看前清单准备及时",
+                "tag_type": "2",
+                "is_hidden": "0",
+                "tag_model": "YwIncreaseScoreBusinessTags",
+                "tag_value": "703"
+            },
+            "46": {
+                "id": "51",
+                "tag_name": "APP视频带看",
+                "tag_type": "2",
+                "is_hidden": "0",
+                "tag_model": "YwIncreaseScoreBusinessTags",
+                "tag_value": "706"
+            },
+            "47": {
+                "id": "52",
+                "tag_name": "线上铺垫",
+                "tag_type": "2",
+                "is_hidden": "0",
+                "tag_model": "YwIncreaseScoreBusinessTags",
+                "tag_value": "707"
+            },
+            "48": {
+                "id": "53",
+                "tag_name": "带看跟进频率高",
+                "tag_type": "2",
+                "is_hidden": "0",
+                "tag_model": "YwIncreaseScoreBusinessTags",
+                "tag_value": "708"
+            },
+            "49": {
+                "id": "54",
+                "tag_name": "提前录入预约带看",
+                "tag_type": "2",
+                "is_hidden": "0",
+                "tag_model": "YwIncreaseScoreBusinessTags",
+                "tag_value": "709"
+            }
+        }
+    },
+    {
+        "name": "认购类",
+        "list": {
+            "16": {
+                "id": "17",
+                "tag_name": "排号录入延迟",
+                "tag_type": "3",
+                "is_hidden": "0",
+                "tag_model": "YwPaihaoBusinessTags",
+                "tag_value": "300"
+            },
+            "17": {
+                "id": "18",
+                "tag_name": "认购录入延迟",
+                "tag_type": "3",
+                "is_hidden": "0",
+                "tag_model": "YwSubscribeBusinessTags",
+                "tag_value": "310"
+            },
+            "18": {
+                "id": "19",
+                "tag_name": "草签录入延迟",
+                "tag_type": "3",
+                "is_hidden": "0",
+                "tag_model": "YwSignGrassBusinessTags",
+                "tag_value": "2"
+            },
+            "19": {
+                "id": "20",
+                "tag_name": "网签录入延迟",
+                "tag_type": "3",
+                "is_hidden": "0",
+                "tag_model": "YwSignBusinessTags",
+                "tag_value": "2"
+            },
+            "29": {
+                "id": "32",
+                "tag_name": "网签前风险提示未发送",
+                "tag_type": "3",
+                "is_hidden": "1",
+                "tag_model": "YwDealBusinessTags",
+                "tag_value": "201"
+            },
+            "31": {
+                "id": "35",
+                "tag_name": "成交后跟进频率低",
+                "tag_type": "3",
+                "is_hidden": "0",
+                "tag_model": "YwFollowBusinessTag",
+                "tag_value": "305"
+            },
+            "33": {
+                "id": "37",
+                "tag_name": "未陪同签约",
+                "tag_type": "3",
+                "is_hidden": "0",
+                "tag_model": "YwEmployeeBusinessTags",
+                "tag_value": "33"
+            }
+        }
+    },
+    {
+        "name": "其他类",
+        "list": {
+            "1": {
+                "id": "2",
+                "tag_name": "不合理关上户",
+                "tag_type": "4",
+                "is_hidden": "1",
+                "tag_model": "YwEmployeeBusinessTags",
+                "tag_value": "555"
+            },
+            "3": {
+                "id": "4",
+                "tag_name": "不合理关订单",
+                "tag_type": "4",
+                "is_hidden": "0",
+                "tag_model": "YwOrderBusinessTags",
+                "tag_value": "249"
+            },
+            "24": {
+                "id": "27",
+                "tag_name": "问答数量不达标",
+                "tag_type": "4",
+                "is_hidden": "0",
+                "tag_model": "YwEmployeeQaBusinessTags",
+                "tag_value": "500"
+            },
+            "25": {
+                "id": "28",
+                "tag_name": "问答质量不合格",
+                "tag_type": "4",
+                "is_hidden": "0",
+                "tag_model": "YwEmployeeQaBusinessTags",
+                "tag_value": "501"
+            },
+            "26": {
+                "id": "29",
+                "tag_name": "A级报备错误",
+                "tag_type": "4",
+                "is_hidden": "0",
+                "tag_model": "YwReportBusinessTags",
+                "tag_value": "1"
+            },
+            "27": {
+                "id": "30",
+                "tag_name": "B级报备错误",
+                "tag_type": "4",
+                "is_hidden": "0",
+                "tag_model": "YwReportBusinessTags",
+                "tag_value": "2"
+            },
+            "28": {
+                "id": "31",
+                "tag_name": "C级报备错误",
+                "tag_type": "4",
+                "is_hidden": "0",
+                "tag_model": "YwReportBusinessTags",
+                "tag_value": "3"
+            },
+            "32": {
+                "id": "36",
+                "tag_name": "未穿工服",
+                "tag_type": "4",
+                "is_hidden": "0",
+                "tag_model": "YwFollowBusinessTag",
+                "tag_value": "606"
+            },
+            "44": {
+                "id": "49",
+                "tag_name": "优秀产品建议",
+                "tag_type": "4",
+                "is_hidden": "0",
+                "tag_model": "YwIncreaseScoreBusinessTags",
+                "tag_value": "704"
+            },
+            "50": {
+                "id": "55",
+                "tag_name": "签约评价",
+                "tag_type": "4",
+                "is_hidden": "0",
+                "tag_model": "YwIncreaseScoreBusinessTags",
+                "tag_value": "710"
+            },
+            "51": {
+                "id": "56",
+                "tag_name": "用户下载居理新房APP",
+                "tag_type": "4",
+                "is_hidden": "0",
+                "tag_model": "YwIncreaseScoreBusinessTags",
+                "tag_value": "711"
+            }
+        }
+    }
+]
