@@ -1,9 +1,15 @@
 <template>
   <div class="header">
     <ul class="nav">
-      <li>首页</li>
-      <li>新闻列表</li>
-      <li>个人中心</li>
+      <li>
+        <router-link to="/home">首页</router-link>
+      </li>
+      <li>
+        <router-link to="/news">新闻列表</router-link>
+      </li>
+      <li>
+        <router-link to="/user">个人中心</router-link>
+      </li>
     </ul>
   </div>
 </template>
@@ -18,5 +24,8 @@ export default {
 .nav {
   display: flex;
   color: #369;
+  > li {
+    margin: 0 10px;
+  }
 }
 </style>
