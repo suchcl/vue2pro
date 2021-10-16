@@ -43,7 +43,6 @@ export default {
   },
   methods: {
     itemClick() {
-      console.log("tabbarItem被点击了");
       this.$router.push(this.path);
     },
   },
