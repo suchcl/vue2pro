@@ -5,6 +5,9 @@ Vue.use(VueRouter);
 
 // 导入组件
 const Home = () => import("../pages/home/Home.vue");
+const Category = () => import("../pages/category/Category.vue");
+const ShopCar = () => import("../pages/shopcar/ShopCar.vue");
+const Profile = () => import("../pages/profile/Profile.vue");
 
 const routes = [
   {
@@ -14,6 +17,18 @@ const routes = [
   {
     path: "/home",
     component: Home,
+  },
+  {
+    path: "/category",
+    component: Category,
+  },
+  {
+    path: "/shopcar",
+    component: ShopCar,
+  },
+  {
+    path: "/profile",
+    component: Profile,
   },
 ];
 

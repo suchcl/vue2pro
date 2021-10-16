@@ -1,7 +1,8 @@
 <template>
   <div id="app">
+    <router-view />
     <tabbar>
-      <tab-bar-item>
+      <tab-bar-item path="/home" activeColor="green">
         <img slot="item-icon" src="./assets/images/tabbar/img1.png" alt="" />
         <img
           slot="item-icon-active"
@@ -10,7 +11,7 @@
         />
         <span slot="item-text">首页</span>
       </tab-bar-item>
-      <tab-bar-item>
+      <tab-bar-item path="/category">
         <img slot="item-icon" src="./assets/images/tabbar/img2.png" alt="" />
         <img
           slot="item-icon-active"
@@ -19,7 +20,7 @@
         />
         <span slot="item-text">分类</span>
       </tab-bar-item>
-      <tab-bar-item>
+      <tab-bar-item path="/shopcar">
         <img slot="item-icon" src="./assets/images/tabbar/img3.png" alt="" />
         <img
           slot="item-icon-active"
@@ -28,9 +29,9 @@
         />
         <span slot="item-text">购物车</span>
       </tab-bar-item>
-      <tab-bar-item
-        ><img slot="item-icon" src="./assets/images/tabbar/img4.png" alt="" />
-        ><img
+      <tab-bar-item path="/profile">
+        <img slot="item-icon" src="./assets/images/tabbar/img4.png" alt="" />
+        <img
           slot="item-icon-active"
           src="./assets/images/tabbar/img4-active.png"
           alt=""

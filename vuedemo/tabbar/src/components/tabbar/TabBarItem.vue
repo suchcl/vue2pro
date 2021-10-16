@@ -1,12 +1,16 @@
 <template>
-  <div class="tab-bar-item">
+  <div class="tab-bar-item" @click="itemClick">
     <div class="tab-item-icon" v-if="!isActive">
       <slot name="item-icon"></slot>
     </div>
     <div class="tab-item-icon" v-else>
       <slot name="item-icon-active"></slot>
     </div>
-    <div class="tab-item-text" :class="{ active: isActive }">
+    <div
+      class="tab-item-text"
+      :class="{ active: isActive }"
+      :style="activeTextStyle"
+    >
       <slot name="item-text"></slot>
     </div>
   </div>
@@ -17,8 +21,31 @@ export default {
   name: "TabBarItem",
   data() {
     return {
-      isActive: false,
+      // isActive: false, // 判断当前路由是否处于活跃路由，这样的判断方式不可取，因为是写死的
     };
+  },
+  props: {
+    path: String,
+    activeColor: {
+      type: String,
+      default: "#f20",
+    },
+  },
+  computed: {
+    // 判断当前路由处于活跃状态
+    isActive() {
+      return this.$route.path.indexOf(this.path) !== -1;
+    },
+    // 处理活跃状态的文字颜色
+    activeTextStyle() {
+      return this.isActive ? { color: this.activeColor } : {};
+    },
+  },
+  methods: {
+    itemClick() {
+      console.log("tabbarItem被点击了");
+      this.$router.push(this.path);
+    },
   },
 };
 </script>
