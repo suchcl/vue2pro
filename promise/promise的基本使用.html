@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise的基本使用</title>
+</head>
+
+<body>
+    <script>
+        new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve("Hello Vue");
+            }, 4000);
+        }).then(data => { // data是从resolve传递过来的数据，只要resolve执行力，就一定会执行then
+            console.log(data);
+        }, err => {
+            console.log(err);
+        });
+    </script>
+</body>
+
+</html>
