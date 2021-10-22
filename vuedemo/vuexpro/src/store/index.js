@@ -37,11 +37,18 @@ const store = new Vuex.Store({
     ],
   },
   mutations: {
+    // increment称为事件类型，后面的部分称为回调函数，state是回调函数的第一个参数
     increment(state) {
       state.counter++;
     },
     decrement(state) {
       state.counter--;
+    },
+    incrementCount(state, count) {
+      state.counter += count;
+    },
+    addStudent(state, stu) {
+      state.students.push(stu);
     },
   },
   actions: {},

@@ -1,10 +1,19 @@
 <template>
   <div id="app">
+    <h1>Slot</h1>
+    <nick-name>
+      <template slot-scope="scope">
+        <div>{{ scope.nickName }}</div>
+      </template>
+    </nick-name>
     <h2>-------App组件-------</h2>
     <h2>{{ msg }}</h2>
     <h3>{{ $store.state.counter }}</h3>
     <button @click="addition">+</button>
     <button @click="subtraction">-</button>
+    <button @click="addCount(5)">+5</button>
+    <button @click="addCount(10)">+10</button>
+    <button @click="addStudent">添加学生</button>
     <h2>---------App组件 Getters----------</h2>
     <p class="text">{{ $store.getters.powerCounter }}</p>
     <h2>------年龄大于20岁的学生-----</h2>
@@ -53,20 +62,36 @@
     </div>
     <h2>------子组件---------</h2>
     <user-center :username="username" />
+    <h2>---------子组件----------</h2>
+    <tt :msg="info" @getName="getName">
+      <div>
+        <h3>这里是一个slot</h3>
+        <button slot="btn">这是一个slot占位的button</button>
+        <p slot="text">这里是一个slot占位的text</p>
+        <template slot-scope="scope">
+          <div>{{ scope.nickName }}</div>
+        </template>
+      </div>
+    </tt>
   </div>
 </template>
 
 <script>
 import UserCenter from "./components/UserCenter.vue";
+import Tt from "./components/tt.vue";
+import NickName from "./components/NickName.vue";
 export default {
   name: "App",
   components: {
     UserCenter,
+    Tt,
+    NickName
   },
   data() {
     return {
       msg: "我是App组件",
       username: "Nicholas Zakas",
+      info: "闫士敬"
     };
   },
   computed: {
@@ -83,6 +108,20 @@ export default {
     },
     subtraction() {
       this.$store.commit("decrement");
+    },
+    getName(data) {
+      console.log(data);
+    },
+    addCount(count) {
+      this.$store.commit("incrementCount", count);
+    },
+    addStudent() {
+      const student = {
+        id: 108,
+        name: "Iverson",
+        age: 29
+      };
+      this.$store.commit("addStudent", student);
     }
   }
 };
