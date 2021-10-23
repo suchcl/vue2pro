@@ -1,15 +1,20 @@
-"use strict";
-// let oBox: any = document.getElementById("box");
-// oBox.style.color = "#f60"
-// ts中，可以为变量声明为多种类型，那么在给变量赋值时，就可以是声明的这几种变量中的任意一种类型
-var nums;
-nums = "Nicholas"; // string类型
-console.log('nums: ', nums); // Nicholas
-nums = 16; // number类型
-console.log('nums: ', nums); // 16
-var a;
-console.log('a: ', a); // undefined
-function run() {
-    console.log("running");
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  this.play = function () {
+    return this.name + " is playing!";
+  };
 }
-run(); // running
+Person.prototype.work = function () {
+  return this.name + " is working!";
+};
+
+function Child(name, age) {
+  Person.call(this, name, age); // 对象冒充的继承模式，子类可以向父类传参了
+}
+// Child.prototype = new Person();
+Child.prototype = Person.prototype; // 子类的prototype指向父类的prototype，实现原型继承
+
+var c = new Child("Nicholas Zakas", 18);
+console.log(c.play()); // undefined is playing!
+console.log(c.work()); // 可以继承父类的原型方法
