@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>js对象</h2>
+    <script>
+        // let person = {
+        //     name: "Nicholas Zakas",
+        //     age: 18
+        // };
+
+        console.time("timer");
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        for (var i = 0; i < 100000; i++) {
+            var sum = 0;
+            sum += i * 12 / 3;
+        }
+        var p = {
+            name: "Nicholas Zakas",
+            age: 18
+        };
+        console.timeEnd("timer");
+    </script>
+</body>
+
+</html>
