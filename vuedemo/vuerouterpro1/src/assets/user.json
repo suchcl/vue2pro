@@ -2,16 +2,25 @@
     {
         "id": 1,
         "username": "Nicholas",
-        "age": 18
+        "age": 18,
+        "isActive": true
     },
     {
         "id": 2,
         "username": "HuMeimei",
-        "age": 26
+        "age": 26,
+        "isActive": false
     },
     {
         "id": 3,
         "username": "XinYunhan",
-        "age": 32
+        "age": 32,
+        "isActive": true
+    },
+    {
+        "id": 4,
+        "username": "Wangdaming",
+        "age": 32,
+        "isActive": true
     }
 ]
