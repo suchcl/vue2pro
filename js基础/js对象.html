@@ -10,26 +10,29 @@
 
 <body>
     <h2>js对象</h2>
+    <script src="./js/class.js"></script>
+    <!-- <script src="./js/o2.js"></script> -->
     <script>
-        // let person = {
-        //     name: "Nicholas Zakas",
-        //     age: 18
-        // };
+        // // 工厂模式创建对象
+        // function createPerson(name, age, job) {
+        //     let o = new Object();
+        //     o.name = name;
+        //     o.age = age;
+        //     o.job = job;
+        //     o.getName = function () {
+        //         console.log(this);
+        //         console.log(this.name);
+        //     }
+        //     return o;
+        // }
+        // let p = createPerson("Nicholas Zakas", 18, "Teacher");
+        // p.getName();
+        // function Person() {
 
-        console.time("timer");
-        function Person(name, age) {
-            this.name = name;
-            this.age = age;
-        }
-        for (var i = 0; i < 100000; i++) {
-            var sum = 0;
-            sum += i * 12 / 3;
-        }
-        var p = {
-            name: "Nicholas Zakas",
-            age: 18
-        };
-        console.timeEnd("timer");
+        // }
+        // Person.prototype = Object;
+        // console.log(p instanceof Person);
+        // console.log(tt);
     </script>
 </body>
 
