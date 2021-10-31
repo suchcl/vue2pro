@@ -44,8 +44,15 @@ const store = new Vuex.Store({
     decrement(state) {
       state.counter--;
     },
+    /**
+     * 接收提交的mutation
+     * 如果提交mutaition的时候，是按照type方式提交的，那么这里的第二个参数，则是一个对象，不仅仅是一个具体的变量了，参数名也可更改为payload
+     * @param {*} state
+     * @param {Object} count 
+     */
     incrementCount(state, count) {
-      state.counter += count;
+      console.log(count);
+      state.counter += count.count;
     },
     addStudent(state, stu) {
       state.students.push(stu);
