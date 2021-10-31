@@ -92,7 +92,8 @@ const routes = [
   },
   {
     path: "/user",
-    component: User,
+    // component: User,
+    component: () => import("../components/user.vue"),
     meta: {
       title: "用户列表"
     }

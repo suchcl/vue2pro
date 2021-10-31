@@ -27,6 +27,14 @@
         <li v-for="item in activeUsers" :key="item.id">{{ item.username }}</li>
       </ul>
     </div>
+    <!--watch\computed-->
+    <div class="username">
+      <h4>姓名：{{ fullname }}</h4>
+      <div class="firstname">
+        FirstName:
+        <input type="text" v-model="firstname" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -35,7 +43,10 @@ import data from "../assets/user.json";
 export default {
   data() {
     return {
-      userinfo: data
+      userinfo: data,
+      firstname: "Nicholas",
+      lastname: "Zakas",
+      fullname: ""
     };
   },
   computed: {
@@ -43,6 +54,20 @@ export default {
       return this.userinfo.filter((item) => {
         return item.isActive;
       });
+    }
+  },
+  methods: {
+    newElement() {
+      var div = document.createElement("div");
+      var str = "";
+      for (var key in div) {
+        str = str + key + " ";
+      }
+    }
+  },
+  watch: {
+    firstname(newName, oldName) {
+      this.fullname = newName + this.lastname;
     }
   }
 };

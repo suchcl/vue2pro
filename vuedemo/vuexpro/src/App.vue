@@ -98,7 +98,8 @@ export default {
     };
   },
   mounted() {
-    window.addEventListener("scroll", this.dataRefresh)
+    // window.addEventListener("scroll", this.dataRefresh)
+
   },
   computed: {
     over20YearsOld() {
@@ -162,7 +163,7 @@ export default {
       let windowHeight = document.documentElement.clientHeight;
       let scrollTop = document.documentElement.scrollTop;
       let scrollHeight = document.body.scrollHeight;
-
+      // console.log("页面scroll");
       // 设置页面居理底部居理
       let distance = 50;
       if (scrollTop + windowHeight >= scrollHeight - distance) {
