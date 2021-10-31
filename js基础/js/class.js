@@ -107,4 +107,15 @@
 //     console.log("car还是一个null，空对象指针");
 // }
 
-console.log(undefined === null);
+// console.log(undefined === null);
+
+let a = {
+    name: "less",
+    age: 18
+};
+
+let b = a;
+console.log(a.name); // less
+b.name = "Sun";
+console.log(a.name); // Sun
+console.log(b.name); // Sun

@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <router-link to="/fresh">上拉加载、下拉刷新效果模拟</router-link>
+    <router-view></router-view>
     <h1>Slot</h1>
     <nick-name>
       <template slot-scope="scope">
@@ -176,6 +178,8 @@ export default {
 
 <style>
 #app {
+
+#app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -188,4 +192,3 @@ h3,
 .text {
   font-size: 32px;
 }
-</style>
