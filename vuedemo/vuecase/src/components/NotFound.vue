@@ -10,6 +10,8 @@ export default {
         return {
             msg: "不存在的页面"
         }
+    },
+    methods: {
     }
 }
 </script>
