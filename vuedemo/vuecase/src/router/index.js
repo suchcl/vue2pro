@@ -7,6 +7,10 @@ const UserList = () => import("../pages/users/UserList.vue");
 const Home = () => import("../pages/index.vue");
 const NotFound = () => import("../components/NotFound.vue");
 
+// 组件通信测试
+const Cmp = () => import("../pages/cmpcom/cmp.vue");
+const Pcmp = () => import("../pages/cmpcom/pcc/Parent.vue");
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -32,6 +36,19 @@ const routes = [
         }
     },
     {
+        path: "/compo",
+        component:Cmp,
+        children:[
+            {
+                path: "cpcmp",
+                component: Pcmp,
+                meta: {
+                    title: "父组件"
+                }
+            }
+        ]
+    },
+    {
         path: "*",
         component: NotFound,
         meta: {
@@ -43,6 +60,13 @@ const routes = [
 const router = new VueRouter({
     routes,
     mode: "history"
+});
+
+router.beforeEach((to,from,next) => {
+    if(to.meta.title){
+        document.title = to.meta.title
+    }
+    next();
 });
 
 export default router;

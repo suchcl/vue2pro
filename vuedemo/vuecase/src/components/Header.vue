@@ -11,6 +11,9 @@
                 <router-link to="/UserList">用户列表</router-link>
             </li>
             <li>
+                <router-link to="/compo/cpcmp">组件通信测试</router-link>
+            </li>
+            <li>
                 <router-link to="/no">不存在的路由</router-link>
             </li>
         </ul>
