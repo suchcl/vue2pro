@@ -11,6 +11,9 @@ const NotFound = () => import("../components/NotFound.vue");
 const Cmp = () => import("../pages/cmpcom/cmp.vue");
 const Pcmp = () => import("../pages/cmpcom/pcc/Parent.vue");
 
+// EventBus通信
+const EC = () => import("../pages/cmpcom/brc/C.vue");
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -44,6 +47,13 @@ const routes = [
                 component: Pcmp,
                 meta: {
                     title: "父组件"
+                }
+            },
+            {
+                path: "c",
+                component:EC,
+                meta: {
+                    title: "EventBus C"
                 }
             }
         ]
