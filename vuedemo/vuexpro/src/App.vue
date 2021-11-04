@@ -1,6 +1,12 @@
 <template>
   <div id="app">
     <router-view></router-view>
+    <div class="athletes">
+      <h5>姓名：{{ $store.state.userinfo.name }}</h5>
+      <p>身高：{{ $store.state.userinfo.height }}</p>
+      <button @click="updateAth">mutation修改信息</button>
+      <button @click="updateAthByAction">通过action异步操作，修改信息</button>
+    </div>
     <h3>delete和Vue.delete</h3>
     <div class="books">
       <h4>书名：{{ book.name }}</h4>
@@ -91,7 +97,7 @@
 import UserCenter from "./components/UserCenter.vue";
 import Tt from "./components/tt.vue";
 import NickName from "./components/NickName.vue";
-import { INCREMENT } from "./store/mutation-types";
+import { INCREMENT, UPDATEATHINFO } from "./store/mutation-types";
 export default {
   name: "App",
   components: {
@@ -120,6 +126,37 @@ export default {
     }
   },
   methods: {
+    // /**
+    //  * 通过action，有异步操作，去修改state
+    //  * 第2个参数，可以是函数，可以是字符串，也可以是对象
+    //  */
+    // updateAthByAction() {
+    //   this.$store.dispatch("updateAthDescAction", () => { // 第2个参数为函数
+    //     console.log("内部代码已经执行完了");
+    //   });
+    // },
+
+    // 下面的代码和上面的代码都是正常且常规的实现，还有另外一种更优雅的实现：Promise
+    // updateAthByAction() {
+    //   this.$store.dispatch("updateAthDescAction", {
+    //     message: "我是组件中携带的参数",
+    //     success: () => {
+    //       console.log("组件中的代码已经执行完成");
+    //     }
+    //   })
+    // },
+
+    // promise实现
+    updateAthByAction() {
+      this.$store.dispatch("updateAthDescAction", "我从组件携带的参数").then(res => {
+        console.log(res);
+      });
+    },
+
+    // 修改运动员信息
+    updateAth() {
+      this.$store.commit(UPDATEATHINFO);
+    },
     // 修改state中book的属性
     bookInfoChange() {
       this.$store.commit("bookInfoChange");
@@ -208,5 +245,10 @@ h3,
 }
 .btn-book {
   padding: 0 10px;
+}
+.athletes {
+  text-align: left;
+  width: 300px;
+  padding-left: 40px;
 }
 </style>

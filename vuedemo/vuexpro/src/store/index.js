@@ -1,7 +1,7 @@
 // 导入Vue、Vuex
 import Vue from "vue";
 import Vuex from "vuex";
-import {INCREMENT} from '@/store/mutation-types';
+import {INCREMENT,UPDATEATHINFO,UPDATEATHDESCMUTATION} from '@/store/mutation-types';
 
 // 安装（管理、应用）Vuex
 Vue.use(Vuex);
@@ -40,9 +40,35 @@ const store = new Vuex.Store({
       name: "Ajax高级程序设计",
       price: 129.99,
       author: "Nicholas C. Zakas"
+    },
+    userinfo:{
+      name: "Jordan",
+      height: 1.98,
+      age: 23,
+      sex: "male"
     }
   },
   mutations: {
+    /**
+     * 通过action修改state
+     * @param {*} state 
+     */
+    [UPDATEATHDESCMUTATION](state){
+      state.userinfo.height = 3.2;
+    },
+
+    // 修改运动员信息
+    [UPDATEATHINFO](state){
+      // state.userinfo.name = "Duncan";
+
+      /**
+       * 现在从这个地方(mutation中)执行一个异步操作
+       * 这里的变化，页面上也响应式的变化了，但是devtools中，并没有跟着变化，没有捕捉到这个变化
+       */
+      setTimeout(() => {
+        state.userinfo.name = "Nicholas Zakas";
+      },1000)
+    },
     // 书的信息修改
     bookInfoChange(state){
       // 简单的修改书名
@@ -75,7 +101,39 @@ const store = new Vuex.Store({
       state.students.push(stu);
     },
   },
-  actions: {},
+  actions: {
+    /**
+     * 修改运动员简介
+     * context:上下文，在vuex中，就可以简单的理解为store对象
+     * action中的方法，默认的第一个参数，不是state了，而是context
+     */
+    // updateAthDescAction(context,playload){
+    //   setTimeout(() => {
+    //     context.commit(UPDATEATHDESCMUTATION);
+    //     playload(); // 组件中传递过来的函数，这里直接执行即可
+    //   },1000);
+    // }
+
+    // 下面的实现和上面的实现，都是常规且可行的方案，还有一种通过Promsie的优雅的实现方案
+    // updateAthDescAction(context,playload){
+    //   setTimeout(() => {
+    //     context.commit(UPDATEATHDESCMUTATION);
+    //     console.log(playload.message); // 组件中传递过来的是对象，可以直接调用
+    //     playload.success();
+    //   },1000);
+    // }
+
+    // 通过Promise实现
+    updateAthDescAction(context,payload){
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          context.commit(UPDATEATHDESCMUTATION);
+          console.log(payload);
+          resolve("action中的参数"); // resolve执行后，不再后面继续执行then，而是在组件派发action的地方去执行then
+        },1000);
+      });
+    }
+  },
   getters: {
     // 获取数的平方
     powerCounter(state) {
