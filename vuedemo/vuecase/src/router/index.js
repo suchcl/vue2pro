@@ -14,6 +14,9 @@ const Pcmp = () => import("../pages/cmpcom/pcc/Parent.vue");
 // EventBus通信
 const EC = () => import("../pages/cmpcom/brc/C.vue");
 
+// $provide/inject通信
+const ProvideCmp = () => import("../pages/cmpcom/provide/Parent.vue");
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -54,6 +57,13 @@ const routes = [
                 component:EC,
                 meta: {
                     title: "EventBus C"
+                }
+            },
+            {
+                path: "provide",
+                component: ProvideCmp,
+                meta: {
+                    title: "通过provide/inject进行数据通信"
                 }
             }
         ]

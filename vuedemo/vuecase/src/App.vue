@@ -2,7 +2,6 @@
   <div id="app">
     <Header />
     <router-view />
-    <button @click="showMsg">我是根节点</button>
   </div>
 </template>
 

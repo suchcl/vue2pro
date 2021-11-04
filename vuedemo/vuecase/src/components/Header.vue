@@ -17,19 +17,8 @@
                 <router-link to="/no">不存在的路由</router-link>
             </li>
         </ul>
-        <button @click="exeRootFn()">获取根组件数据</button>
     </header>
 </template>
-
-<script>
-export default {
-    methods: {
-        exeRootFn() {
-            console.log(this.$root);
-        }
-    }
-}
-</script>
 <style scoped>
 ul,
 ul,

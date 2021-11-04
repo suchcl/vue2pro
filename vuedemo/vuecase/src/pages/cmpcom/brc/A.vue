@@ -31,10 +31,20 @@ export default {
         exeParent() {
             this.$parent.showMsg();
         },
+        /**
+         * 通过$parent访问父组件中的数据
+         * 和执行父组件中的方法
+         */
         getParentData() {
             // 获取父组件中的数据
             console.log(this.$parent.msg);
         },
+
+        /**
+         * 期望通过$root访问根组件中的属性
+         * 执行根组件中的方法，但是都失败了
+         * 暂时没有找到原因
+         */
         exeRootFun() {
             this.$root.showMsg();
         }

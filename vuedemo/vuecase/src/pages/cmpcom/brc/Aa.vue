@@ -21,6 +21,10 @@ export default {
                 this.num = info * 5;
             });
         },
+        /**
+         * 这里期望访问根组件的属性和方法，但是都失败了
+         * 还没有找到原因
+         */
         exeRoot() {
             console.log("要执行根组件的方法了");
             this.$root.showMsg();
