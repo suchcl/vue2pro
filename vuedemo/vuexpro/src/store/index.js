@@ -1,6 +1,7 @@
 // 导入Vue、Vuex
 import Vue from "vue";
 import Vuex from "vuex";
+import {INCREMENT} from '@/store/mutation-types';
 
 // 安装（管理、应用）Vuex
 Vue.use(Vuex);
@@ -35,10 +36,26 @@ const store = new Vuex.Store({
         age: 16,
       },
     ],
+    book:{
+      name: "Ajax高级程序设计",
+      price: 129.99,
+      author: "Nicholas C. Zakas"
+    }
   },
   mutations: {
+    // 书的信息修改
+    bookInfoChange(state){
+      // 简单的修改书名
+      // state.book.name = "Javascript高级程序设计";
+
+      // 移除价格属性  price属性会从book对象中移除掉，但是没有响应的显示到页面中
+      // delete state.book.price
+
+      // 通过Vue.delete删除book的price属性 删除后的数据，响应式的显示到了页面上
+      Vue.delete(state.book,"price");
+    },
     // increment称为事件类型，后面的部分称为回调函数，state是回调函数的第一个参数
-    increment(state) {
+    [INCREMENT] (state) {
       state.counter++;
     },
     decrement(state) {

@@ -1,7 +1,13 @@
 <template>
   <div id="app">
-    <router-link to="/fresh">上拉加载、下拉刷新效果模拟</router-link>
     <router-view></router-view>
+    <h3>delete和Vue.delete</h3>
+    <div class="books">
+      <h4>书名：{{ book.name }}</h4>
+      <p v-if="book.price">价格：{{ book.price }}</p>
+      <p>作者： {{ book.author }}</p>
+      <button @click="bookInfoChange" class="btn-book">修改属性</button>
+    </div>
     <h1>Slot</h1>
     <nick-name>
       <template slot-scope="scope">
@@ -85,6 +91,7 @@
 import UserCenter from "./components/UserCenter.vue";
 import Tt from "./components/tt.vue";
 import NickName from "./components/NickName.vue";
+import { INCREMENT } from "./store/mutation-types";
 export default {
   name: "App",
   components: {
@@ -96,7 +103,8 @@ export default {
     return {
       msg: "我是App组件",
       username: "Nicholas Zakas",
-      info: "闫士敬"
+      info: "闫士敬",
+      book: this.$store.state.book
     };
   },
   mounted() {
@@ -112,8 +120,12 @@ export default {
     }
   },
   methods: {
+    // 修改state中book的属性
+    bookInfoChange() {
+      this.$store.commit("bookInfoChange");
+    },
     addition() {
-      this.$store.commit("increment");
+      this.$store.commit(INCREMENT);
     },
     subtraction() {
       this.$store.commit("decrement");
@@ -178,8 +190,6 @@ export default {
 
 <style>
 #app {
-
-#app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -192,3 +202,11 @@ h3,
 .text {
   font-size: 32px;
 }
+.books {
+  text-align: left;
+  padding-left: 40px;
+}
+.btn-book {
+  padding: 0 10px;
+}
+</style>
