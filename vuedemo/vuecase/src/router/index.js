@@ -14,6 +14,9 @@ const Pcmp = () => import("../pages/cmpcom/pcc/Parent.vue");
 // EventBus通信
 const EC = () => import("../pages/cmpcom/brc/C.vue");
 
+// 再一次测试EventBus
+const CC = () => import("../pages/cmpcom/eventbus/C.vue");
+
 // $provide/inject通信
 const ProvideCmp = () => import("../pages/cmpcom/provide/Parent.vue");
 
@@ -65,6 +68,10 @@ const routes = [
                 meta: {
                     title: "通过provide/inject进行数据通信"
                 }
+            },
+            {
+                path:"ec",
+                component: CC
             }
         ]
     },

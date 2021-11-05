@@ -9,7 +9,7 @@
                 <router-link to="bro">$emit传值</router-link>
             </li>
             <li>
-                <router-link to="c">EventBus</router-link>
+                <router-link to="ec">EventBus</router-link>
             </li>
             <li>
                 <router-link to="provide">provide/inject</router-link>
