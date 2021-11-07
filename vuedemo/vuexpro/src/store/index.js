@@ -1,7 +1,7 @@
 // 导入Vue、Vuex
 import Vue from "vue";
 import Vuex from "vuex";
-import {INCREMENT,UPDATEATHINFO,UPDATEATHDESCMUTATION,UPDATEBOOKNAME} from '@/store/mutation-types';
+import {INCREMENT,UPDATEATHINFO,UPDATEATHDESCMUTATION,UPDATEBOOKNAME,ASYNCUPDATEBOOKNAME} from '@/store/mutation-types';
 
 // 安装（管理、应用）Vuex
 Vue.use(Vuex);
@@ -13,13 +13,36 @@ const moduleA = {
     price: 69.00,
     author: "罗伊安妮.格罗纳"
   },
-  getters:{},
+  getters:{
+    // state：当前module下的state
+    bookBaseInfo(state){
+      return `书名:${state.bookName}，作者：${state.author}`;
+    },
+    // getters：就是当前的getters，可以调用当前module中getters中的其他属性
+    bookAllBaseInfo(state,getters){
+      return `${getters.bookBaseInfo}，价格：${state.price}`;
+    },
+    // rootState,根state，可以通过rootState获取根state中的状态
+    bookAllInfo(state,getters,rootState){
+      return `${getters.bookAllBaseInfo}，数量为：${rootState.counter}`;
+    }
+  },
   mutations:{
     [UPDATEBOOKNAME](state){
       state.bookName = "Javascript权威指南";
+    },
+    [ASYNCUPDATEBOOKNAME](state,payload){
+      console.log(state);
+      state.bookName = payload;
     }
   },
-  actions:{},
+  actions:{
+    aAsyncUpDateBookNameByAction(context,payload){
+      setTimeout(() => {
+        context.commit(ASYNCUPDATEBOOKNAME,payload)
+      },1000);
+    }
+  },
   modules:{}
 };
 

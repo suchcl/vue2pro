@@ -6,6 +6,11 @@
       <h5>获取modules中的state值</h5>
       <p>书名：《{{ $store.state.fbook.bookName }}》</p>
       <button @click="updateBookName">更改书名</button>
+      <h3>modules中的getters用法</h3>
+      <p>书的基本信息:{{ $store.getters.bookBaseInfo }}</p>
+      <p>书的全部信息：{{ $store.getters.bookAllBaseInfo }}</p>
+      <p>加上了数量：{{ $store.getters.bookAllInfo }}</p>
+      <button @click="asyncUpdateBookName">异步修改书名</button>
     </div>
     <div class="athletes">
       <h5>姓名：{{ $store.state.userinfo.name }}</h5>
@@ -132,6 +137,10 @@ export default {
     }
   },
   methods: {
+    // 异步方式修改书名
+    asyncUpdateBookName() {
+      this.$store.dispatch("aAsyncUpDateBookNameByAction", "Asp.net程序设计");
+    },
     // 更改书名
     updateBookName() {
       this.$store.commit(UPDATEBOOKNAME);
