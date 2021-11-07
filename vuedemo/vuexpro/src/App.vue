@@ -1,6 +1,12 @@
 <template>
   <div id="app">
     <router-view></router-view>
+    <div class="module-demo">
+      <h3>vuex中的modules案例</h3>
+      <h5>获取modules中的state值</h5>
+      <p>书名：《{{ $store.state.fbook.bookName }}》</p>
+      <button @click="updateBookName">更改书名</button>
+    </div>
     <div class="athletes">
       <h5>姓名：{{ $store.state.userinfo.name }}</h5>
       <p>身高：{{ $store.state.userinfo.height }}</p>
@@ -97,7 +103,7 @@
 import UserCenter from "./components/UserCenter.vue";
 import Tt from "./components/tt.vue";
 import NickName from "./components/NickName.vue";
-import { INCREMENT, UPDATEATHINFO } from "./store/mutation-types";
+import { INCREMENT, UPDATEATHINFO, UPDATEBOOKNAME } from "./store/mutation-types";
 export default {
   name: "App",
   components: {
@@ -126,6 +132,10 @@ export default {
     }
   },
   methods: {
+    // 更改书名
+    updateBookName() {
+      this.$store.commit(UPDATEBOOKNAME);
+    },
     // /**
     //  * 通过action，有异步操作，去修改state
     //  * 第2个参数，可以是函数，可以是字符串，也可以是对象
@@ -250,5 +260,9 @@ h3,
   text-align: left;
   width: 300px;
   padding-left: 40px;
+}
+.module-demo {
+  padding: 20px;
+  background-color: antiquewhite;
 }
 </style>

@@ -1,10 +1,36 @@
 // 导入Vue、Vuex
 import Vue from "vue";
 import Vuex from "vuex";
-import {INCREMENT,UPDATEATHINFO,UPDATEATHDESCMUTATION} from '@/store/mutation-types';
+import {INCREMENT,UPDATEATHINFO,UPDATEATHDESCMUTATION,UPDATEBOOKNAME} from '@/store/mutation-types';
 
 // 安装（管理、应用）Vuex
 Vue.use(Vuex);
+
+// 模块A moduleA
+const moduleA = {
+  state:{
+    bookName: "Javascript数据结构与算法",
+    price: 69.00,
+    author: "罗伊安妮.格罗纳"
+  },
+  getters:{},
+  mutations:{
+    [UPDATEBOOKNAME](state){
+      state.bookName = "Javascript权威指南";
+    }
+  },
+  actions:{},
+  modules:{}
+};
+
+// 模块B moduleB
+const moduleB = {
+  state:{},
+  getters:{},
+  mutations:{},
+  actions:{},
+  modules:{}
+};
 
 // 创建Vuex对象
 /**
@@ -167,7 +193,10 @@ const store = new Vuex.Store({
       };
     },
   },
-  modules: {},
+  modules: {
+    fbook:moduleA,
+    order:moduleB
+  },
 });
 
 // 导出store
