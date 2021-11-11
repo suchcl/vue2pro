@@ -5,6 +5,9 @@
                 <router-link to="/">首页</router-link>
             </li>
             <li>
+                <router-link to="/reactive">Vue2响应式</router-link>
+            </li>
+            <li>
                 <router-link to="/DataFresh">页面刷新</router-link>
             </li>
             <li>

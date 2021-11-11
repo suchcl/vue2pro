@@ -6,6 +6,7 @@ const DataFresh = () => import("../components/DataFresh.vue");
 const UserList = () => import("../pages/users/UserList.vue");
 const Home = () => import("../pages/index.vue");
 const NotFound = () => import("../components/NotFound.vue");
+const Reactive = () => import("../pages/reactive/Reactive.vue");
 
 // 组件通信测试
 const Cmp = () => import("../pages/cmpcom/cmp.vue");
@@ -42,6 +43,13 @@ const routes = [
         component: UserList,
         meta:{
             title: "用户列表"
+        }
+    },
+    {
+        path: "/reactive",
+        component: Reactive,
+        meta: {
+            title: "Vue2中的响应式"
         }
     },
     {
