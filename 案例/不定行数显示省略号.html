@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>不定行数显示省略号</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul,ol,li {
+            list-style: none;
+        }
+        .project {
+            height: 120px;
+            padding: 10px;
+            background-color: antiquewhite;
+            overflow: hidden;
+        }
+        .pic {
+            float: right;
+            width: 180px;
+            height: 120px;
+            margin-left: 20px;
+            overflow: hidden;
+        }
+        .pic img {
+            width: 100%;
+            height: 100%;
+        }
+        .title {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="project">
+        <div class="item">
+            <div class="pic">
+                <img src="./images//img1.jpg" alt="">
+            </div>
+            <div class="section">
+                <h3 class="title">这是一篇超过一万五千字的游戏开发面试经验贴,游戏引擎开发和技术美术岗位几乎</h3>
+                <p class="excerpt">文章聚焦于游戏开发岗位面试当中经常考察的进阶知识——图形学，并涵盖了绝大部分游戏开发和图形开发面试中的图形学基础问题</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
