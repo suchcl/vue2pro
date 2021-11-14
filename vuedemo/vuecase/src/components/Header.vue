@@ -11,6 +11,9 @@
                 <router-link to="/DataFresh">页面刷新</router-link>
             </li>
             <li>
+                <router-link to="/slot">slot</router-link>
+            </li>
+            <li>
                 <router-link to="/UserList">用户列表</router-link>
             </li>
             <li>

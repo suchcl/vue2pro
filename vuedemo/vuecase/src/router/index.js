@@ -7,6 +7,8 @@ const UserList = () => import("../pages/users/UserList.vue");
 const Home = () => import("../pages/index.vue");
 const NotFound = () => import("../components/NotFound.vue");
 const Reactive = () => import("../pages/reactive/Reactive.vue");
+// slot
+const SA = () => import("../pages/slot/SA.vue");
 
 // 组件通信测试
 const Cmp = () => import("../pages/cmpcom/cmp.vue");
@@ -50,6 +52,13 @@ const routes = [
         component: Reactive,
         meta: {
             title: "Vue2中的响应式"
+        }
+    },
+    {
+        path: "/slot",
+        component: SA,
+        meta: {
+            title: "slot测试"
         }
     },
     {
