@@ -40,6 +40,45 @@
       }
       let arr = [3, 4, 7, 23, 90, 90, 93];
       console.log(binary_search(arr, 90)); // 4
+
+      // 二分查找法 --- 轮转后的有序数组的实现
+      function binary_search_revert(arr, target) {
+        // 数组为空的情况
+        if (arr == null || !arr.length) {
+          return -1; // -1表示数组为null，或者没有数组项，就是一个空数组
+        }
+
+        // 搜索区间是前后都是hi闭区间
+        let beginIndex = 0;
+        let endIndex = arr.length - 1;
+        while (beginIndex <= endIndex) {
+          let midIndex = beginIndex + ((endIndex - beginIndex) >> 2);
+          if (arr[midIndex] == target) {
+            return midIndex;
+          }
+          // 如果左侧是有序的
+          if (arr[beginIndex] <= arr[midIndex]) {
+            //如果target在[ arr[beginIndex],arr[midIndex] ]中，那么就在这个区间内查找
+            if (arr[beginIndex] <= target && arr[midIndex] >= target) {
+              endIndex = midIndex - 1;
+            } else {
+              beginIndex = midIndex + 1;
+            }
+            // 如果右侧是有序的
+          } else {
+            // 如果在target在[arr[midIndex],arr[endIndex]]中
+            if (arr[midIndex] <= target && arr[endIndex] >= target) {
+              beginIndex = midIndex + 1;
+            } else {
+              endIndex = midIndex - 1;
+            }
+          }
+        }
+        return -1;
+      }
+      let arr2 = [8, 12, 89, 102, 3, 5, 7];
+      console.log(binary_search_revert(arr2, 77)); // -1
+      console.log(binary_search_revert(arr2, 5)); // 3
     </script>
   </body>
 </html>
