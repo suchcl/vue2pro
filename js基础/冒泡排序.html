@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>冒泡排序</title>
+  </head>
+  <body>
+    <h4>冒泡排序</h4>
+    <script>
+      // 冒泡排序（Bubble Sort） 按照从大到小的顺序排序
+      function bubbleSort(arr) {
+        const len = arr.length;
+        for (let i = 0; i < len - 1; i++) {
+          for (let j = 0; j < len - 1 - i; j++) {
+            // arr[j] < arr[j + 1] 改成arr[j] > arr[j + 1]就是从小到大排序了
+            if (arr[j] < arr[j + 1]) {
+              let temp = arr[j + 1];
+              arr[j + 1] = arr[j];
+              arr[j] = temp;
+            }
+          }
+        }
+        return arr;
+      }
+
+      const arr = [35, 18, 23, 72, 94];
+      console.log(bubbleSort(arr)); // [94, 72, 35, 23, 18]
+
+      function bubbleSortOpt(arr) {
+        let i = arr.length - 1;
+        while (i > 0) {
+          // 每一轮遍历开始时，都不记录交换
+          let pos = 0;
+          for (let j = 0; j < i; j++) {
+            if (arr[j] < arr[j + 1]) {
+              let temp = arr[j];
+              arr[j] = arr[j + 1];
+              arr[j + 1] = temp;
+              // 记录交换的位置
+              pos = j;
+            }
+          }
+          // 记录下当前位置，准备下一轮的遍历
+          i = pos;
+        }
+        return arr;
+      }
+
+      console.log(bubbleSortOpt(arr)); //[94, 72, 35, 23, 18]
+    </script>
+  </body>
+</html>
