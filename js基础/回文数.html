@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>回文数</title>
+  </head>
+  <body>
+    <script>
+      //   function isPalindrome(num) {
+      //     if (num < 0 || (num !== 0 && num % 10 === 0)) {
+      //       return false;
+      //     } else if (num >= 0 && num <= 9) {
+      //       return true;
+      //     }
+      //     num = num.toString();
+      //     for (let i = 0; i <= num.length / 2; i++) {
+      //       // 注意这里不能使用num[i] === num[num.length - i - 1]，因为只要有false就要退出循环，而不是只要有1个true就可以
+      //       if (num[i] !== num[num.length - i - 1]) {
+      //         return false;
+      //       }
+      //     }
+      //     return true;
+      //   }
+
+      // function isPalindrome(num) {
+      //   let numToStr = num.toString();
+      //   let newStr = "";
+      //   let len = numToStr.length - 1;
+      //   if (num >= 0 && num <= 9) {
+      //     return true;
+      //   } else if (num < 0 || (num !== 0 && num % 10 === 0)) {
+      //     return false;
+      //   }
+
+      //   for (let i = len; i >= 0; i--) {
+      //     newStr += numToStr[i];
+      //   }
+      //   return newStr === numToStr;
+      // }
+
+      function isPalindrome(num) {
+        if (num < 0) {
+          return false;
+        }
+        let numStr = num.toString();
+        // return parseInt(Array.from(numStr).reverse().join("")) === num;
+        return Array.from(numStr).reverse().join("") === numStr;
+      }
+      let num = 120;
+      console.log(isPalindrome(num)); // false
+    </script>
+  </body>
+</html>
