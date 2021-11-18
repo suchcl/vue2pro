@@ -72,15 +72,21 @@
 // console.log(myfn(1)(2)(3)(4));
 
 // 组合函数
-function afn(a) {
-    return a * 2;
-}
+// function afn(a) {
+//     return a * 2;
+// }
 
-function bfn(b) {
-    return b * 3;
-}
+// function bfn(b) {
+//     return b * 3;
+// }
 
-const compose = (a, b) => c => a(b(c));
+// const compose = (a, b) => c => a(b(c));
 
-let myfn = compose(afn, bfn);
-console.log(myfn(4)); // 24
+// let myfn = compose(afn, bfn);
+// console.log(myfn(4)); // 24
+
+
+let arr = [3, "Nicholas Zakas", false, null];
+arr.forEach(item => {
+    console.log(item);
+})
