@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>最高海拔高度</title>
+  </head>
+  <body>
+    <script>
+      function largestAltitude(gain) {
+        let maxHeight = Math.max(
+          ...gain.reduce(
+            (pre, cur) => {
+              return [...pre, pre[pre.length - 1] + cur];
+            },
+            [0]
+          )
+        );
+        return maxHeight;
+      }
+
+      let gain = [-4, -3, -2, -1, 4, 3, 2];
+      console.log(largestAltitude(gain));
+    </script>
+  </body>
+</html>
