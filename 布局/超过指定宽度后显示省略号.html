@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>超过指定宽度后显示……</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      .box {
+          padding-left: 20px;
+      }
+      .mb20 {
+        margin-bottom: 20px;
+      }
+      .bg {
+        background-color: darkcyan;
+        color: #fff;
+      }
+      .text {
+        width: 150px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      .keep-all {
+        width: 300px;
+        /* word-break: keep-all; */
+        white-space: nowrap;
+      }
+      .multy-text {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        width: 260px;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <!--单行超宽显示省略号-->
+      <div class="text mb20">
+        我就是一些固定的单行文字我就是一些固定的单行文字
+      </div>
+      <!--强制文字不换行-->
+      <div class="keep-all bg mb20">
+        我就是一些固定的单行文字我就是一些固定的单行文字
+      </div>
+      <div class="keep-all bg mb20">Understanding which axis is which is important when we start to look at aligning and justifying flex items; flexbox features properties that align and justify content along one axis or the other.</div>
+      <!--多行文字超宽后显示省略号-->
+      <div class="multy-text">
+        我就是一些固定的多行文字我就是一些固定的多行文字我就是一些固定的多行文字我就是一些固定的多行文字我就是一些固定的多行文字我就是一些固定的多行文字我就是一些固定的多行文字我就是一些固定的多行文字
+      </div>
+    </div>
+  </body>
+</html>
