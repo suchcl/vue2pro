@@ -70,7 +70,7 @@ export default {
       axios.get('http://localhost:3000/', {
         cancelToken: new CancelToken(function executor(c) {
           self.cancel = c;
-          console.log(c);
+          // console.log(c);
           // 这个参数c就是CancelToken构造函数里面自带的取消请求的函数，这里把该函数当参数用
         }),
         params: {
