@@ -59,10 +59,9 @@ export default {
     getUser() {
       let CancelToken = axios.CancelToken;
       let self = this;
-
       let id = this.id;
       if (id === 1) {
-        this.id = 2;
+        this.id = 2
       } else {
         this.id = 1;
       }
