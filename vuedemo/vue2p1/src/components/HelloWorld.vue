@@ -1,6 +1,5 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
     <ul class="list">
       <li>1</li>
@@ -16,6 +15,8 @@
     <button @click="changeOrder">调整顺序</button>
     <button @click="getVersion">获取版本号</button>
     <button @click="setVresion">设置版本号</button>
+    <button @click="getUser">获取用户信息</button>
+    <button @click="cancelGet">取消请求用户</button>
   </div>
 </template>
 
@@ -26,10 +27,12 @@
  */
 // const version = import('../../package.json');
 import Version from "../../package.json";
+import axios from "axios";
 export default {
   name: "HelloWorld",
   data() {
     return {
+      id: 1,
       msg: "Welcome to Your Vue.js App",
       vn: {
         tag: "ul",
@@ -52,6 +55,38 @@ export default {
     changeOrder() {
       console.log("调整顺序");
       this.num.reverse();
+    },
+    getUser() {
+      let CancelToken = axios.CancelToken;
+      let self = this;
+
+      let id = this.id;
+      if (id === 1) {
+        this.id = 2;
+      } else {
+        this.id = 1;
+      }
+
+      axios.get('http://localhost:3000/', {
+        cancelToken: new CancelToken(function executor(c) {
+          self.cancel = c;
+          console.log(c);
+          // 这个参数c就是CancelToken构造函数里面自带的取消请求的函数，这里把该函数当参数用
+        }),
+        params: {
+          id
+        }
+      }).then(function (response) {
+        console.log(response.data);
+      });
+
+      setTimeout(function () {
+        // 只要我们去调用了这个cancel()方法，没有完成请求的接口便会停止请求
+        self.cancel();
+      }, 100000);
+    },
+    cancelGet() {
+      this.cancel();
     }
   }
 };
