@@ -26,6 +26,9 @@ export default {
   color: #369;
   > li {
     margin: 0 10px;
+    a {
+      color: #f20;
+    }
   }
 }
 </style>
