@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js解构</title>
+</head>
+
+<body>
+    <h3>js解构</h3>
+    <script>
+        let obj = {
+            name: "Nicholas Zakas",
+            age: 16
+        };
+        // 可以解构一个不存在的属性，但是调用的时候，值为undefined
+        // const { name, age, job } = obj;
+        // console.log(name);
+        // console.log(job);
+
+        obj.job = "Teacher";
+        const { name, job } = obj;
+        console.log(job);
+    </script>
+</body>
+
+</html>
