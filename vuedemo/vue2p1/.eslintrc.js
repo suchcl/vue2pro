@@ -29,6 +29,7 @@ module.exports = {
     "comma-spacing": [2, { "before": false, "after": true }],
     "comma-style": [2, "last"],
     "no-spaced-func": 2,
-    "space-before-function-paren": [0, "always"]
+    "space-before-function-paren": [0, "always"],
+    "quotes": [0, "double"]
   }
 }
