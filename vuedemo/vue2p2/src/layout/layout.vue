@@ -7,10 +7,10 @@
 </template>
 
 <script>
-import PageHeader from "./header.vue";
-import PageFooter from "./footer.vue";
-export default {
-  name: "Layout",
-  components: { PageHeader, PageFooter },
-};
+  import PageHeader from "./header.vue";
+  import PageFooter from "./footer.vue";
+  export default {
+    name: "Layout",
+    components: { PageHeader, PageFooter },
+  };
 </script>

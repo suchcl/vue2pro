@@ -15,20 +15,22 @@
 </template>
 
 <script>
-export default {
-  name: "Header",
-};
+  export default {
+    name: "Header",
+  };
 </script>
 
 <style lang="less">
-.nav {
-  display: flex;
-  color: #369;
-  > li {
-    margin: 0 10px;
-    a {
-      color: #f20;
+  .nav {
+    display: flex;
+    color: #369;
+
+    >li {
+      margin: 0 10px;
+
+      a {
+        color: #f20;
+      }
     }
   }
-}
 </style>
