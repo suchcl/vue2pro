@@ -24,7 +24,7 @@ var app = new Vue({
                     // 这个参数 c 就是CancelToken构造函数里面自带的取消请求的函数，这里把该函数当参数用
                 })
             }).then(res => {
-                this.items = res.data
+                this.items = res.data;
             }).catch(err => {
                 console.log(err)
             })

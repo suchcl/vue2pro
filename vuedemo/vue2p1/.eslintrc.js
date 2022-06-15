@@ -134,7 +134,7 @@ module.exports = {
     //'quotes': [2, 'single', { avoidEscape: true, allowTemplateLiterals: true }], // avoidEscape: true 允许字符串使用单引号或双引号，只要字符串包含必须以其他方式转义的引号 ;allowTemplateLiterals: true 允许字符串使用反引号
     "quotes": [1, "single"],
     'radix': 2, // parseInt必须指定第二个参数
-    'semi': [2, 'never'], // 不使用分号
+    'semi': [1, 'never'], // 不使用分号
     'semi-spacing': [2, { before: false, after: true }], // 强制分号间隔
     'space-before-blocks': [2, 'always'], // 块必须至少有一个先前的空间
     'space-before-function-paren': [2, 'never'], // 在(参数后面不允许任何空格

@@ -1,12 +1,17 @@
 <template>
   <div class="home">
-    <h2>首页</h2>
+    <h2>首页3333</h2>
+    <div id="player">测试播放器</div>
     <button @click="btnClick">确认</button>
   </div>
 </template>
 
 <script>
+import Mp3Player from '@tegfe/wbplayer-mp3';
   export default {
+    mounted(){
+      this.initPlayer();
+    },
     methods: {
       btnClick() {
         console.log("来了");
@@ -19,8 +24,17 @@
           },
         });
       },
-      handleClick() {
-        
+      initPlayer(){
+        let player = document.querySelector("#player");
+        console.log(player.innerText);
+        new Mp3Player.Player({
+          id: player,
+          url: this.list,
+          preloadNext: true,
+          width: 900,
+          height: 80,
+          volumeShow: false,
+        })
       }
     },
   };
