@@ -25,6 +25,7 @@ import Mp3Player from '@tegfe/wbplayer-mp3';
         });
       },
       initPlayer(){
+        // 实例化该播放器，有问题，找不到Player，未定义
         let player = document.querySelector("#player");
         console.log(player.innerText);
         new Mp3Player.Player({
