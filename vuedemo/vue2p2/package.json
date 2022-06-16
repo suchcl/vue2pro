@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@tegfe/wbplayer-encrypt.js": "^1.0.3",
     "@tegfe/wbplayer-mp3": "^1.0.1",
     "core-js": "^3.6.5",
     "vue": "^2.6.11",

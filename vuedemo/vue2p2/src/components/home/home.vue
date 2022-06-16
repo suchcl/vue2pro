@@ -10,7 +10,7 @@
 import Mp3Player from '@tegfe/wbplayer-mp3';
   export default {
     mounted(){
-      this.initPlayer();
+      // this.initPlayer();
     },
     methods: {
       btnClick() {
