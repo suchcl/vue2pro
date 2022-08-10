@@ -8,12 +8,19 @@
 </template>
 
 <script>
+import getUrlParams from "../utils/getUrlParams";
 export default {
   name: "Profile",
   data() {
     return {
       profile: this.$route.query
     };
+  },
+  created() {
+    let urlPa = getUrlParams(location.href);
+    const { username, token } = urlPa;
+    console.log(username);
+    console.log("token222:", token);
   }
 };
 </script>

@@ -43,7 +43,7 @@ const routes = [
 const router = new VueRouter({
   // 配置路由和组件之间的映射关系
   routes,
-  mode: "history",
+  // mode: "history",
   linkActiveClass: "linkedOn" // 配置被选中路由的样式
 });
 

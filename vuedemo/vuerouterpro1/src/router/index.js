@@ -34,7 +34,7 @@ const HomeMessage = () => import("../components/HomeMessage");
 const About = resolve => require(["../components/about.vue"], resolve);
 // // import User from "../components/user.vue";
 // // 结合ES6标准语法，使用的最简单的方式实现路由懒加载的Vue异步组件和webpack的代码切割
-const User = () => import("../components/user.vue");
+// const User = () => import("../components/user.vue");
 // // import UserDetail from "../components/userDetail.vue"
 const UserDetail = () => import("../components/userDetail");
 const Profile = () => import("../components/profile");
@@ -116,7 +116,7 @@ const routes = [
 const router = new VueRouter({
   // 配置路由和组件之间的映射关系
   routes,
-  mode: "history",
+  // mode: "history",
   linkActiveClass: "linkedOn" // 配置被选中路由的样式
 });
 
